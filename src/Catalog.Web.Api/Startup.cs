@@ -1,4 +1,4 @@
-using Microservice.Value.Infrastructure.Persistence;
+using Microservice.Value.Web.Api.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,12 +21,11 @@ namespace Microservice.Value.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ValueContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ValueConnection"), x=>x.MigrationsAssembly("Microservice.Value.Infrastructure")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
-
-
+            services.DataAccessInitialize(Configuration);
             services.AddControllers();
+
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Value.Web.Api", Version = "v1" });

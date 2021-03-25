@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Microservice.Value.Infrastructure.Migrations
+namespace Microservice.Value.DomainLogic.Migrations
 {
     /*
      * To add migration folder you need use the command:

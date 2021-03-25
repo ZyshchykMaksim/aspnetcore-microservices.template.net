@@ -30,9 +30,9 @@ namespace Microservice.DataAccess.DB
         /// <summary>
         /// Gets entity by unique identifier.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of </param>
         /// <returns></returns>
-        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(Guid id);
 
         /// <summary>
         /// Adds an new entity.
@@ -42,17 +42,31 @@ namespace Microservice.DataAccess.DB
         Task<T> AddAsync(T entity);
 
         /// <summary>
+        /// Adds the range.
+        /// </summary>
+        /// <param name="entities">The entities.</param>
+        public Task AddRangeAsync(IEnumerable<T> entities);
+
+        /// <summary>
         /// Updates an existing entity.
         /// </summary>
         /// <param name="entity">The an new entity.</param>
+        /// <param name="updateWholeEntity">if set to <c>true</c> updates whole entity otherwise updates only modified fields.</param>
+        /// <param name="rowVersion">The row version.</param>
         /// <returns></returns>
-        Task UpdateAsync(T entity);
+        Task UpdateAsync(T entity, bool updateWholeEntity = false, byte[] rowVersion = null);
 
         /// <summary>
-        /// Deletes an entity.
+        /// Removes an entity.
         /// </summary>
         /// <param name="entity">The an new entity.</param>
         /// <returns></returns>
-        Task DeleteAsync(T entity);
+        Task RemoveAsync(T entity);
+
+        /// <summary>
+        /// Removes the specified range of entities.
+        /// </summary>
+        /// <param name="entities">The entities.</param>
+        Task RemoveRangeAsync(IEnumerable<T> entities);
     }
 }

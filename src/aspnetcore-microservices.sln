@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.EF", "Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.EF.csproj", "{C0F82945-4F45-4479-B60A-321026995218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Value.Domen", "Microservice.Catalog.Domen\Microservice.Value.Domen.csproj", "{7A74D30A-1B0C-4998-9A0C-B5838EA898B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Domen", "Microservice.Catalog.Domen\Microservice.Value.Domen.csproj", "{7A74D30A-1B0C-4998-9A0C-B5838EA898B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Value.Infrastructure", "Microservice.Catalog.Infrastructure\Microservice.Value.Infrastructure.csproj", "{2059F3E9-CDDD-41A9-A343-588789492D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.DomainLogic", "Microservice.Catalog.Infrastructure\Microservice.Value.DomainLogic.csproj", "{2059F3E9-CDDD-41A9-A343-588789492D8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

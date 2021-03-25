@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microservice.DataAccess.DB;
 
-namespace Microservice.Value.Infrastructure.Repositories
+namespace Microservice.Value.DomainLogic.Repositories
 {
     public interface IValueRepository : IRepository<Domen.Entities.Value>
     {

@@ -13,6 +13,9 @@ namespace Microservice.DataAccess.DB.EF
     {
         private readonly DbContextBase _dbContext;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryBase"/> class.
+        /// </summary>
         public RepositoryBase(DbContextBase dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
@@ -51,7 +54,7 @@ namespace Microservice.DataAccess.DB.EF
         }
 
         /// <inheritdoc />
-        public virtual async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
@@ -60,22 +63,49 @@ namespace Microservice.DataAccess.DB.EF
         public async Task<T> AddAsync(T entity)
         {
             await _dbContext.Set<T>().AddAsync(entity);
+
             await _dbContext.SaveChangesAsync();
 
             return entity;
         }
 
         /// <inheritdoc />
-        public async Task UpdateAsync(T entity)
+        public async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.Set<T>().AddRangeAsync(entities);
+
             await _dbContext.SaveChangesAsync();
         }
 
         /// <inheritdoc />
-        public async Task DeleteAsync(T entity)
+        public async Task UpdateAsync(T entity,  bool updateWholeEntity = false, byte[] rowVersion = null)
+        {
+            if (updateWholeEntity)
+            {
+                _dbContext.Entry(entity).State = EntityState.Modified;
+            }
+
+            if (rowVersion != null)
+            {
+                _dbContext.Entry(entity).OriginalValues["RowVersion"] = rowVersion;
+            }
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        /// <inheritdoc />
+        public async Task RemoveAsync(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        /// <inheritdoc />
+        public async Task RemoveRangeAsync(IEnumerable<T> entities)
+        {
+            _dbContext.Set<T>().RemoveRange(entities);
+
             await _dbContext.SaveChangesAsync();
         }
     }
