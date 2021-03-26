@@ -1,6 +1,6 @@
 ﻿namespace Microservice.Value.Web.Api.Models
 {
-    public class CreateValueDto
+    public class RequestCreateValueDto
     {
         /// <summary>
         /// The name of value.

@@ -13,7 +13,7 @@ namespace Microservice.Value.Web.Api.IoC
 {
     public static class DataAccessExtension
     {
-        public static IServiceCollection DataAccessInitialize(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDataAccess(this IServiceCollection services, IConfiguration configuration)
         {
             var t = typeof(ValueContext);
             var assembly = Assembly.GetAssembly(t);

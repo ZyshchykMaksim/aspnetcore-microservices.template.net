@@ -11,8 +11,9 @@ namespace Microservice.Value.Web.Api.Mappings
         /// </summary>
         public ValueProfile()
         {
-            CreateMap<ValueDto, Domen.Entities.Value>().ReverseMap();
-            CreateMap<CreateValueDto, Domen.Entities.Value>().ReverseMap();
+            CreateMap<ResponseValueDto, Domen.Entities.Value>().ReverseMap();
+            CreateMap<RequestCreateValueDto, Domen.Entities.Value>().ReverseMap();
+            CreateMap<RequestUpdateValueDto, Domen.Entities.Value>().ReverseMap();
         }
     }
 }

@@ -52,13 +52,7 @@ namespace Microservice.DataAccess.DB.EF
 
             return await query.ToListAsync();
         }
-
-        /// <inheritdoc />
-        public virtual async Task<T> GetByIdAsync(Guid id)
-        {
-            return await _dbContext.Set<T>().FindAsync(id);
-        }
-
+        
         /// <inheritdoc />
         public async Task<T> AddAsync(T entity)
         {
@@ -78,7 +72,7 @@ namespace Microservice.DataAccess.DB.EF
         }
 
         /// <inheritdoc />
-        public async Task UpdateAsync(T entity,  bool updateWholeEntity = false, byte[] rowVersion = null)
+        public async Task UpdateAsync(T entity, bool updateWholeEntity = false, byte[] rowVersion = null)
         {
             if (updateWholeEntity)
             {

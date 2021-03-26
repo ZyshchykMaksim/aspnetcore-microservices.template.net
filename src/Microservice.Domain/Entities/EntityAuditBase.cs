@@ -5,7 +5,7 @@ namespace Microservice.Domain.Entities
     /// <summary>
     /// The class of base audit.
     /// </summary>
-    public abstract class EntityAuditBase : EntityBase, IAuditable
+    public abstract class EntityAuditBase : EntityBase, IAuditable, ISoftDelitable
     {
         #region Implementation of IAuditable
 
@@ -20,6 +20,16 @@ namespace Microservice.Domain.Entities
 
         ///<inheritdoc cref="IAuditable"/>
         public DateTime LastModifiedUtc { get; set; }
+
+        #endregion
+
+        #region Implementation of ISoftDelitable
+
+        ///<inheritdoc cref="ISoftDelitable"/>
+        public string DeletedBy { get; set; }
+
+        ///<inheritdoc cref="ISoftDelitable"/>
+        public DateTime? DeletedUtc { get; set; }
 
         #endregion
     }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dawn;
@@ -20,14 +22,25 @@ namespace Microservice.Value.Web.Api.Services.Implementations
             IValueRepository valueRepository,
             IMapper mapper)
         {
-            _valueRepository = valueRepository ?? throw new ArgumentNullException(nameof(valueRepository));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _valueRepository = Guard.Argument(valueRepository, nameof(valueRepository)).NotNull().Value;
+            _mapper = Guard.Argument(mapper, nameof(mapper)).NotNull().Value;
         }
 
         #region Implementation of IValueService
 
+        /// <summary>
+        /// Gets all information about values.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<ResponseValueDto>> GetAllAsync()
+        {
+            var values = await _valueRepository.GetAsync(x => !x.DeletedUtc.HasValue);
+
+            return _mapper.Map<IEnumerable<Domen.Entities.Value>, IEnumerable<ResponseValueDto>>(values);
+        }
+
         /// <inheritdoc />
-        public async Task<ValueDto> GetByIdAsync(Guid valueId)
+        public async Task<ResponseValueDto> GetByIdAsync(Guid valueId)
         {
             if (valueId == Guid.Empty)
             {
@@ -35,36 +48,62 @@ namespace Microservice.Value.Web.Api.Services.Implementations
             }
 
             var valueEntity = await _valueRepository.GetByIdAsync(valueId);
-            var valueMapp = _mapper.Map<Domen.Entities.Value, ValueDto>(valueEntity);
 
-            return valueMapp;
+            return _mapper.Map<Domen.Entities.Value, ResponseValueDto>(valueEntity); ;
         }
 
         /// <inheritdoc />
-        public async Task<ValueDto> AddAsync(CreateValueDto createValue)
+        public async Task<ResponseValueDto> AddAsync(RequestCreateValueDto createValue)
         {
             Guard.Argument(() => createValue).NotNull();
 
-            var valueEntityMapp = _mapper.Map<CreateValueDto, Domen.Entities.Value>(createValue);
+            var valueEntityMapp = _mapper.Map<RequestCreateValueDto, Domen.Entities.Value>(createValue);
             var valueEntity = await _valueRepository.AddAsync(valueEntityMapp);
-            var valueMapp = _mapper.Map<Domen.Entities.Value, ValueDto>(valueEntity);
 
-            return valueMapp;
+            return _mapper.Map<Domen.Entities.Value, ResponseValueDto>(valueEntity);
         }
 
         /// <inheritdoc />
-        public Task<ValueDto> UpdateAsync(Guid valueId, UpdateValueDto updateValueDto)
+        public async Task<ResponseValueDto> UpdateAsync(Guid valueId, RequestUpdateValueDto updateValueDto)
         {
-            throw new NotImplementedException();
-
-            Guard.Argument(() => valueId).NotDefault();
             Guard.Argument(() => updateValueDto).NotNull();
+
+            if (valueId == Guid.Empty)
+            {
+                return null;
+            }
+
+            var existingValue = await _valueRepository.GetByIdAsync(valueId);
+
+            if (existingValue == null)
+            {
+                return null;
+            }
+
+            _mapper.Map<RequestUpdateValueDto, Domen.Entities.Value>(updateValueDto, existingValue);
+            await _valueRepository.UpdateAsync(existingValue, false, updateValueDto.RowVersion);
+
+            return _mapper.Map<Domen.Entities.Value, ResponseValueDto>(existingValue);
         }
 
         /// <inheritdoc />
-        public Task<bool> DeleteAsync(Guid valueId)
+        public async Task<bool?> DeleteAsync(Guid valueId)
         {
-            throw new NotImplementedException();
+            if (valueId == Guid.Empty)
+            {
+                return null;
+            }
+
+            var existingValue = await _valueRepository.GetByIdAsync(valueId);
+
+            if (existingValue == null)
+            {
+                return null;
+            }
+
+            await _valueRepository.RemoveAsync(existingValue);
+
+            return true;
         }
 
         #endregion

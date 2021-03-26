@@ -52,18 +52,18 @@ namespace Microservice.DataAccess.DB.EF
             var modifiedSourceInfo = ChangeTracker.Entries<IAuditable>()
                 .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
 
-            foreach (EntityEntry<IAuditable> entry in modifiedSourceInfo)
+            foreach (var entry in modifiedSourceInfo)
             {
-                if (entry.State == EntityState.Added && (DateTime)entry.Property("CreatedUtc").CurrentValue == DateTime.MinValue)
+                if (entry.State == EntityState.Added && (DateTime)entry.Property(nameof(IAuditable.CreatedUtc)).CurrentValue == DateTime.MinValue)
                 {
-                    entry.Property("CreatedBy").CurrentValue = string.Empty;
-                    entry.Property("CreatedUtc").CurrentValue = DateTime.UtcNow;
+                    entry.Property(nameof(IAuditable.CreatedBy)).CurrentValue = string.Empty;
+                    entry.Property(nameof(IAuditable.CreatedUtc)).CurrentValue = DateTime.UtcNow;
                 }
 
                 if (entry.State == EntityState.Added || entry.State == EntityState.Modified)
                 {
-                    entry.Property("UpdatedBy").CurrentValue = string.Empty;
-                    entry.Property("UpdatedUtc").CurrentValue = DateTime.UtcNow;
+                    entry.Property(nameof(IAuditable.LastModifiedBy)).CurrentValue = string.Empty;
+                    entry.Property(nameof(IAuditable.LastModifiedUtc)).CurrentValue = DateTime.UtcNow;
                 }
             }
         }
@@ -79,8 +79,8 @@ namespace Microservice.DataAccess.DB.EF
             foreach (EntityEntry<ISoftDelitable> entry in modifiedSourceInfo)
             {
                 entry.State = EntityState.Modified;
-                entry.Property("DeletedBy").CurrentValue = string.Empty;
-                entry.Property("DeletedUtc").CurrentValue = DateTime.UtcNow;
+                entry.Property(nameof(ISoftDelitable.DeletedBy)).CurrentValue = string.Empty;
+                entry.Property(nameof(ISoftDelitable.DeletedUtc)).CurrentValue = DateTime.UtcNow;
             }
         }
 

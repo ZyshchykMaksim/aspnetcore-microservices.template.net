@@ -14,7 +14,7 @@ namespace Microservice.DataAccess.DB
     public interface IRepository<T> where T : EntityBase
     {
         /// <summary>
-        /// Gets the information about entity.
+        /// Gets the information about entities.
         /// </summary>
         /// <param name="predicate">The predicate to search.</param>
         /// <param name="orderBy">The conditions for ordering.</param>
@@ -26,13 +26,6 @@ namespace Microservice.DataAccess.DB
             List<Expression<Func<T, object>>> includes = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             bool disableTracking = true);
-
-        /// <summary>
-        /// Gets entity by unique identifier.
-        /// </summary>
-        /// <param name="id">The unique identifier of </param>
-        /// <returns></returns>
-        Task<T> GetByIdAsync(Guid id);
 
         /// <summary>
         /// Adds an new entity.

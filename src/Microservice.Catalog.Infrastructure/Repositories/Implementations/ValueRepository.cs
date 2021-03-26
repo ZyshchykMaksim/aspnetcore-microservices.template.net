@@ -15,10 +15,35 @@ namespace Microservice.Value.DomainLogic.Repositories.Implementations
         /// </summary>
         public ValueRepository(ValueContext dbContext) : base(dbContext)
         {
-            _dbContext =  dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
         #region Implementation of IValueRepository
+
+        /// <summary>
+        /// Gets value by unique identifier.
+        /// </summary>
+        /// <param name="strName">The name of value.</param>
+        /// <returns></returns>
+        public Task<Domen.Entities.Value> GetByIdAsync(string strName)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gets value by unique identifier.
+        /// </summary>
+        /// <param name="valueId">The unique identifier of value.</param>
+        /// <returns></returns>
+        public async Task<Domen.Entities.Value> GetByIdAsync(Guid valueId)
+        {
+            if (valueId == Guid.Empty)
+            {
+                return null;
+            }
+
+            return await _dbContext.Values.FirstOrDefaultAsync(x => x.Id == valueId && !x.DeletedUtc.HasValue);
+        }
 
         /// <summary>
         /// Get value by name.
@@ -32,7 +57,7 @@ namespace Microservice.Value.DomainLogic.Repositories.Implementations
                 return null;
             }
 
-            return await _dbContext.Values.FirstOrDefaultAsync(x => x.Name == strName);
+            return await _dbContext.Values.FirstOrDefaultAsync(x => x.Name == strName && !x.DeletedUtc.HasValue);
         }
 
         #endregion

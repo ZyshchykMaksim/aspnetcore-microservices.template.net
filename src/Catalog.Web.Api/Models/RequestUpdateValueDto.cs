@@ -1,6 +1,6 @@
 ﻿namespace Microservice.Value.Web.Api.Models
 {
-    public class UpdateValueDto : CreateValueDto
+    public class RequestUpdateValueDto : RequestCreateValueDto
     {
         /// <summary>
         /// Current resource row version.
