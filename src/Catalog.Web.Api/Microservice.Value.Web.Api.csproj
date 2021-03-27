@@ -30,4 +30,8 @@
     <ProjectReference Include="..\Microservice.Catalog.Infrastructure\Microservice.Value.DomainLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

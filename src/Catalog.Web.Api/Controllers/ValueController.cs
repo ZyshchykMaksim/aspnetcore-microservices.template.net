@@ -25,10 +25,10 @@ namespace Microservice.Value.Web.Api.Controllers
         }
 
         [HttpGet(Name = nameof(GetValues))]
-        [ProducesResponseType(typeof(IEnumerable<ResponseValueDto>), StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<ResponseValueDto>>> GetValues()
+        [ProducesResponseType(typeof(PagedResultDto<ResponseValueDto>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<PagedResultDto<ResponseValueDto>>> GetValues([FromQuery] RequestSearchTermValueDto searchRequest)
         {
-            var valueResult = await _valueService.GetAllAsync();
+            var valueResult = await _valueService.GetAsync(searchRequest);
 
             return Ok(valueResult);
         }

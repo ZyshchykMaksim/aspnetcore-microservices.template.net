@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microservice.DataAccess.DB;
+using Microservice.Domain.Models.Pagination;
+using Microservice.Value.DomainLogic.Models;
 
 namespace Microservice.Value.DomainLogic.Repositories
 {
@@ -19,5 +21,12 @@ namespace Microservice.Value.DomainLogic.Repositories
         /// <param name="strName">The name of value.</param>
         /// <returns></returns>
         Task<Domen.Entities.Value> GetByNameAsync(string strName);
+
+        /// <summary>
+        /// Get values by search terms.
+        /// </summary>
+        /// <param name="searchTermValue">The search terms of value.</param>
+        /// <returns></returns>
+        Task<PagedResult<Domen.Entities.Value>> GetAsync(SearchTermValue searchTermValue);
     }
 }

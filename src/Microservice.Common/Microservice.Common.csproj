@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Attributes\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
     <Folder Include="Utils\" />
   </ItemGroup>

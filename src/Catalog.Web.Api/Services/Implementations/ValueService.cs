@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dawn;
+using Microservice.Domain.Models.Pagination;
+using Microservice.Value.DomainLogic.Models;
 using Microservice.Value.DomainLogic.Repositories;
 using Microservice.Value.Web.Api.Models;
 
@@ -29,14 +31,18 @@ namespace Microservice.Value.Web.Api.Services.Implementations
         #region Implementation of IValueService
 
         /// <summary>
-        /// Gets all information about values.
+        /// Gets the value.
         /// </summary>
+        /// <param name="searchValueDto">The request to search value.</param>
         /// <returns></returns>
-        public async Task<IEnumerable<ResponseValueDto>> GetAllAsync()
+        public async Task<PagedResultDto<ResponseValueDto>> GetAsync(RequestSearchTermValueDto searchValueDto)
         {
-            var values = await _valueRepository.GetAsync(x => !x.DeletedUtc.HasValue);
+            var searchValueMapp = _mapper.Map<RequestSearchTermValueDto, SearchTermValue>(searchValueDto);
 
-            return _mapper.Map<IEnumerable<Domen.Entities.Value>, IEnumerable<ResponseValueDto>>(values);
+            var valuesEntity = await _valueRepository.GetAsync(searchValueMapp);
+            var valuesMapp = _mapper.Map<PagedResult<Domen.Entities.Value>, PagedResultDto<ResponseValueDto>>(valuesEntity);
+
+            return valuesMapp;
         }
 
         /// <inheritdoc />

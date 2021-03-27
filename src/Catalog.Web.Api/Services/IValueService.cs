@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microservice.Domain.Models.Pagination;
 using Microservice.Value.Web.Api.Models;
 
 namespace Microservice.Value.Web.Api.Services
@@ -11,10 +12,11 @@ namespace Microservice.Value.Web.Api.Services
     public interface IValueService
     {
         /// <summary>
-        /// Gets all information about values.
+        /// Gets the values.
         /// </summary>
+        /// <param name="searchValueDto">The request to search value.</param>
         /// <returns></returns>
-        Task<IEnumerable<ResponseValueDto>> GetAllAsync();
+        Task<PagedResultDto<ResponseValueDto>> GetAsync(RequestSearchTermValueDto searchValueDto);
 
         /// <summary>
         /// Gets the value by unique identifier.

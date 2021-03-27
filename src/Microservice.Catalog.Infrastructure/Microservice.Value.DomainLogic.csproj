@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Microservice.Catalog.Domen\Microservice.Value.Domen.csproj" />
+    <ProjectReference Include="..\Microservice.Common\Microservice.Common.csproj" />
     <ProjectReference Include="..\Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.EF.csproj" />
   </ItemGroup>
 

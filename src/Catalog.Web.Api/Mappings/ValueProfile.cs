@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microservice.Domain.Models.Pagination;
+using Microservice.Value.DomainLogic.Models;
 using Microservice.Value.Web.Api.Models;
 
 namespace Microservice.Value.Web.Api.Mappings
@@ -14,6 +16,7 @@ namespace Microservice.Value.Web.Api.Mappings
             CreateMap<ResponseValueDto, Domen.Entities.Value>().ReverseMap();
             CreateMap<RequestCreateValueDto, Domen.Entities.Value>().ReverseMap();
             CreateMap<RequestUpdateValueDto, Domen.Entities.Value>().ReverseMap();
+            CreateMap<RequestSearchTermValueDto, SearchTermValue>().ReverseMap();
         }
     }
 }
