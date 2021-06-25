@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
-namespace Microservice.Value.Web.Api.DataAnnotations
+namespace Microservice.Web.Common.DataAnnotations
 {
     /// <summary>
     /// ListElementsRangeAttribute.
@@ -12,8 +12,8 @@ namespace Microservice.Value.Web.Api.DataAnnotations
     {
         private const string DefaultErrorMessage = "{0} must contain number of elements within range {1} - {2}";
 
-        private readonly int min;
-        private readonly int max;
+        private readonly int _min;
+        private readonly int _max;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ListElementsRangeAttribute"/> class.
@@ -22,8 +22,8 @@ namespace Microservice.Value.Web.Api.DataAnnotations
         /// <param name="max">The maximum.</param>
         public ListElementsRangeAttribute(int min, int max) : base(DefaultErrorMessage)
         {
-            this.min = min;
-            this.max = max;
+            _min = min;
+            _max = max;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Microservice.Value.Web.Api.DataAnnotations
                 return true;
             }
 
-            if (list.Count < this.min || list.Count > this.max)
+            if (list.Count < _min || list.Count > _max)
             {
                 return false;
             }
@@ -64,8 +64,8 @@ namespace Microservice.Value.Web.Api.DataAnnotations
             object[] objArray = new object[3];
 
             objArray[0] = name;
-            objArray[1] = min;
-            objArray[2] = max;
+            objArray[1] = _min;
+            objArray[2] = _max;
 
             return string.Format(currentCulture, errorMessageString, objArray);
         }

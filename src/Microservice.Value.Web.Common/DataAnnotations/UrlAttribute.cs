@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Microservice.Value.Web.Api.DataAnnotations
+namespace Microservice.Web.Common.DataAnnotations
 {
     /// <summary>
     /// The class provides to check that the object is url.

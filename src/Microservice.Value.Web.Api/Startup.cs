@@ -1,7 +1,8 @@
+using EasyCaching.Core.Configurations;
+using EasyCaching.InMemory;
 using Microservice.Value.Web.Api.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +28,26 @@ namespace Microservice.Value.Web.Api
 
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddLZ4Compressor();
+            services.AddEasyCaching(options =>
+            {
+                options.UseInMemory(config =>
+                {
+                    config.DBConfig = new InMemoryCachingOptions
+                    {
+                        ExpirationScanFrequency = 60
+                    };
+                }, "inmemory");
+
+                //use redis cache that named redis1
+                options.UseRedis(config =>
+                    {
+                        config.DBConfig.Endpoints.Add(new ServerEndPoint("127.0.0.1", 6379));
+                    }, "localhost")
+                    .WithJson("json")
+                    .WithCompressor("json", "lz4");
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Value.Web.Api", Version = "v1" });
@@ -40,7 +61,7 @@ namespace Microservice.Value.Web.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog.Web.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Value.Web.Api"));
             }
 
             app.UseRouting();

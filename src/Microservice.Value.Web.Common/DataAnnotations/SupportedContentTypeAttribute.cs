@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
-namespace Microservice.Value.Web.Api.DataAnnotations
+namespace Microservice.Web.Common.DataAnnotations
 {
     /// <summary>
     /// The class provides to support of content type.

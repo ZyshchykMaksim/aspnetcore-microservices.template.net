@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
-namespace Microservice.Value.Web.Api.DataAnnotations
+namespace Microservice.Web.Common.DataAnnotations
 {
     /// <summary>
     /// The class provides to check that property value exists in enum.
@@ -11,7 +11,7 @@ namespace Microservice.Value.Web.Api.DataAnnotations
     [AttributeUsage(AttributeTargets.Property)]
     public class EnumMemberAttribute : ValidationAttribute
     {
-        private const string DefaultErrorMessage = "{0} must contain valid enumeration values.";
+        private const string DEFAULT_ERROR_MESSAGE = "{0} must contain valid enumeration values.";
 
         private readonly Type _type;
 
@@ -20,7 +20,7 @@ namespace Microservice.Value.Web.Api.DataAnnotations
         /// </summary>
         /// <param name="type">The type.</param>
         /// <exception cref="ArgumentException">type</exception>
-        public EnumMemberAttribute(Type type) : base(DefaultErrorMessage)
+        public EnumMemberAttribute(Type type) : base(DEFAULT_ERROR_MESSAGE)
         {
             if (!type.IsEnum)
             {

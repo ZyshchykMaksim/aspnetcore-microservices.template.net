@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Microservice.Value.Web.Api.DataAnnotations
+namespace Microservice.Web.Common.DataAnnotations
 {
     /// <summary>
     /// The class provides to validate that collection contains unique list of elements.

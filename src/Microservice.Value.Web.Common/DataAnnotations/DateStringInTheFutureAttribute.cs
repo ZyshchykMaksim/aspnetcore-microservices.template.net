@@ -1,19 +1,19 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 
-namespace Microservice.Value.Web.Api.DataAnnotations
+namespace Microservice.Web.Common.DataAnnotations
 {
     /// <summary>
-    /// The class provides to check that the string contains date in valid format.
+    /// The class provides to check that provided date string is in the future.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class DateStringAttribute : ValidationAttribute
+    public class DateStringInTheFutureAttribute : ValidationAttribute
     {
         /// <summary>
-        /// Gets or sets the format.
+        /// Time in minutes which will be added to current date during determining of future time.
+        /// By default it is equal to 0
         /// </summary>
-        public string Format { get; set; }
+        public int RelativeTimeInMinutes { get; set; }
 
         /// <summary>
         /// Determines whether the specified value of the object is valid.
@@ -24,19 +24,12 @@ namespace Microservice.Value.Web.Api.DataAnnotations
         /// <param name="value">The value of the object to validate. </param>
         public override bool IsValid(object value)
         {
-            if (value == null)
+            if (value == null || !DateTime.TryParse(value.ToString(), out DateTime date))
             {
                 return true;
             }
 
-            var format = new[] { Format };
-
-            return DateTime.TryParseExact(
-                value.ToString(),
-                format,
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None,
-                out _);
+            return date > DateTime.UtcNow.AddMinutes(RelativeTimeInMinutes);
         }
     }
 }

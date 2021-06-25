@@ -24,15 +24,13 @@ namespace Microservice.Value.Web.Api.IoC
             }
 
             services.AddDbContext<ValueContext>(options =>
-                options.UseSqlServer(
-                    configuration.GetConnectionString("ValueConnection"),
-                    x => x.MigrationsAssembly(assembly.GetName().Name)));
+                options.UseSqlServer(configuration.GetConnectionString("ValueConnection"), x => 
+                    x.MigrationsAssembly(assembly.GetName().Name)));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IValueRepository, ValueRepository>();
-
-
+             
             return services;
         }
     }
