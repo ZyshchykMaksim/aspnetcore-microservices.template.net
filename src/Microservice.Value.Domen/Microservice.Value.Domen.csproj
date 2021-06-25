@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.EF.csproj" />
     <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
   </ItemGroup>
 

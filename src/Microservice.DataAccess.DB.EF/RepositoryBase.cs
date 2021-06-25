@@ -80,7 +80,10 @@ namespace Microservice.DataAccess.DB.EF
 
             if (rowVersion != null)
             {
-                _dbContext.Entry(entity).OriginalValues["RowVersion"] = rowVersion;
+                if (_dbContext.Entry(entity).OriginalValues["RowVersion"] != null)
+                {
+                    _dbContext.Entry(entity).OriginalValues["RowVersion"] = rowVersion;
+                }
             }
 
             await _dbContext.SaveChangesAsync();

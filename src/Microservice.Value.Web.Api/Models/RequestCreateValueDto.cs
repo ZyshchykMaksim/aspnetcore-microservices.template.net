@@ -1,15 +1,25 @@
-﻿namespace Microservice.Value.Web.Api.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Microservice.Value.Web.Api.Models
 {
     public class RequestCreateValueDto
     {
         /// <summary>
-        /// The name of value.
+        /// Gets and sets the name of value.
         /// </summary>
+        [Required(
+            AllowEmptyStrings = false,
+            ErrorMessage = "{0} is required"
+        )]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of value.
-        /// </summary>s
+        /// Gets and sets the description of value.
+        /// </summary>
+        [Required(
+            AllowEmptyStrings = false,
+            ErrorMessage = "{0} is required"
+        )]
         public string Description { get; set; }
     }
 }

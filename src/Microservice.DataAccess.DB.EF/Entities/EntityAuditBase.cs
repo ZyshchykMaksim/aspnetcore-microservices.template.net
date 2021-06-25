@@ -1,6 +1,7 @@
 ﻿using System;
+using Microservice.Domain;
 
-namespace Microservice.Domain.Entities
+namespace Microservice.DataAccess.DB.EF.Entities
 {
     /// <summary>
     /// The class of base audit.

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microservice.DataAccess.DB;
+using Microservice.DataAccess.DB.EF;
 using Microservice.Domain.Models.Pagination;
 using Microservice.Value.DomainLogic.Models;
 

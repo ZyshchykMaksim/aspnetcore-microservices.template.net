@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.DataAccess.DB\Microservice.DataAccess.DB.csproj" />
     <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
   </ItemGroup>
 
