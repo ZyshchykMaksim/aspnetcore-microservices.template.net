@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microservice.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.DataAccess.DB.EF
 {
     /// <inheritdoc />
-    public class RepositoryBase<T> : IRepository<T> where T : EntityBase
+    public class RepositoryBase<T> : IRepository<T> where T : class
     {
         private readonly DbContextBase _dbContext;
 

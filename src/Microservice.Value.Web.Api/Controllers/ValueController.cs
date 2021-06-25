@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microservice.Value.Web.Api.Models;
 using Microservice.Value.Web.Api.Services;

@@ -30,12 +30,6 @@ namespace Microservice.Value.DomainLogic.Repositories.Implementations
         #region Implementation of IValueRepository
 
         /// <inheritdoc cref="IValueRepository"/>
-        public Task<Domen.Entities.Value> GetByIdAsync(string strName)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <inheritdoc cref="IValueRepository"/>
         public async Task<Domen.Entities.Value> GetByIdAsync(Guid valueId)
         {
             if (valueId == Guid.Empty)

@@ -5,7 +5,7 @@ namespace Microservice.Domain.Entities
     /// <summary>
     /// The class of base audit.
     /// </summary>
-    public abstract class EntityAuditBase : EntityBase, IAuditable, ISoftDelitable
+    public abstract class EntityAuditBase<TKey> : EntityBase<TKey>, IAuditable, ISoftDelitable
     {
         #region Implementation of IAuditable
 

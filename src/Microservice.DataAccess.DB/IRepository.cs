@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microservice.Domain.Entities;
 
 namespace Microservice.DataAccess.DB
 {
@@ -11,7 +10,7 @@ namespace Microservice.DataAccess.DB
     /// The repository for communication with the data source.
     /// </summary>
     /// <typeparam name="T">The type of entity. </typeparam>
-    public interface IRepository<T> where T : EntityBase
+    public interface IRepository<T> where T : class
     {
         /// <summary>
         /// Gets the information about entities.
