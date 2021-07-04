@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoFramework" Version="0.25.0" />
+    <PackageReference Include="MongoFramework.Profiling.MiniProfiler" Version="0.25.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

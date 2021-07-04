@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Microservice.Domain;
-
-namespace Microservice.DataAccess.DB.EF.Entities
+﻿namespace Microservice.Domain.Entities
 {
     /// <summary>
     /// The class of base entity.

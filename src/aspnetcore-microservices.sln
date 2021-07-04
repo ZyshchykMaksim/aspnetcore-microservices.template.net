@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Web.Api"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.DomainLogic", "Microservice.Value.DomainLogic\Microservice.Value.DomainLogic.csproj", "{80A419D5-7BDD-4012-BA89-87CDF5044AE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.DataAccess.DB.Mongo", "Microservice.DataAccess.DB.Mongo\Microservice.DataAccess.DB.Mongo.csproj", "{74C6A079-981C-4087-8713-648CCED5F2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.DB.Mongo.Test", "Console.DB.Mongo.Test\Console.DB.Mongo.Test.csproj", "{CD818103-F466-4B3D-B32B-D462364B5609}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{80A419D5-7BDD-4012-BA89-87CDF5044AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80A419D5-7BDD-4012-BA89-87CDF5044AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80A419D5-7BDD-4012-BA89-87CDF5044AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C6A079-981C-4087-8713-648CCED5F2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C6A079-981C-4087-8713-648CCED5F2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C6A079-981C-4087-8713-648CCED5F2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C6A079-981C-4087-8713-648CCED5F2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD818103-F466-4B3D-B32B-D462364B5609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD818103-F466-4B3D-B32B-D462364B5609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD818103-F466-4B3D-B32B-D462364B5609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD818103-F466-4B3D-B32B-D462364B5609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +88,8 @@ Global
 		{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{DD2DF7E2-98E4-4617-B933-478823A3735A} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{80A419D5-7BDD-4012-BA89-87CDF5044AE1} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
+		{74C6A079-981C-4087-8713-648CCED5F2B9} = {B920E10F-88F6-4FCF-B1BD-2C132C1D9B75}
+		{CD818103-F466-4B3D-B32B-D462364B5609} = {A5A48792-1BB4-410F-B25C-DE749656D329}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE88A9A1-886F-43EB-B07F-E72165D1746F}

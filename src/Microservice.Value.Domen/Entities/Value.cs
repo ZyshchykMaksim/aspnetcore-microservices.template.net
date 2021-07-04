@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microservice.DataAccess.DB.EF;
-using Microservice.DataAccess.DB.EF.Entities;
+using Microservice.Domain.Entities;
 
 namespace Microservice.Value.Domen.Entities
 {

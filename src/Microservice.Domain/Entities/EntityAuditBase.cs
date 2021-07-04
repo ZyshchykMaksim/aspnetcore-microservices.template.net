@@ -1,7 +1,6 @@
 ﻿using System;
-using Microservice.Domain;
 
-namespace Microservice.DataAccess.DB.EF.Entities
+namespace Microservice.Domain.Entities
 {
     /// <summary>
     /// The class of base audit.
@@ -11,26 +10,26 @@ namespace Microservice.DataAccess.DB.EF.Entities
         #region Implementation of IAuditable
 
         ///<inheritdoc cref="IAuditable"/>
-        public string CreatedBy { get; set; }
+        public virtual string CreatedBy { get; set; }
 
         ///<inheritdoc cref="IAuditable"/>
-        public DateTime CreatedUtc { get; set; }
+        public virtual DateTime CreatedUtc { get; set; }
 
         ///<inheritdoc cref="IAuditable"/>
-        public string LastModifiedBy { get; set; }
+        public virtual string LastModifiedBy { get; set; }
 
         ///<inheritdoc cref="IAuditable"/>
-        public DateTime LastModifiedUtc { get; set; }
+        public virtual DateTime LastModifiedUtc { get; set; }
 
         #endregion
 
         #region Implementation of ISoftDelitable
 
         ///<inheritdoc cref="ISoftDelitable"/>
-        public string DeletedBy { get; set; }
+        public virtual string DeletedBy { get; set; }
 
         ///<inheritdoc cref="ISoftDelitable"/>
-        public DateTime? DeletedUtc { get; set; }
+        public virtual DateTime? DeletedUtc { get; set; }
 
         #endregion
     }
