@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Console.DB.Mongo.Test.Entities;
+using MongoDB.Driver;
 using MongoFramework;
 using MongoFramework.Linq;
 
@@ -13,6 +14,20 @@ namespace Console.DB.Mongo.Test
     {
         static async Task Main(string[] args)
         {
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("ValueDb");
+
+            var values1 = database.GetCollection<Value>("Values");
+
+           await values1.InsertOneAsync(new Value()
+            {
+                Id = Guid.NewGuid(),
+                CreatedBy = Guid.NewGuid().ToString(),
+                CreatedUtc = DateTime.UtcNow,
+                LastModifiedBy = Guid.NewGuid().ToString(),
+                LastModifiedUtc = DateTime.UtcNow
+            });
+
             try
             {
                 var connection = MongoDbConnection.FromConnectionString("mongodb://localhost:27017/ValueDb");
@@ -34,14 +49,14 @@ namespace Console.DB.Mongo.Test
                     System.Console.ForegroundColor = ConsoleColor.Green;
                     System.Console.WriteLine("The data was saved successfully.");
 
-                    var itemDel = context.Values.FirstOrDefault();
+                    //var itemDel = context.Values.FirstOrDefault();
 
-                    if (itemDel != null)
-                    {
-                        context.Values.Remove(itemDel);
+                    //if (itemDel != null)
+                    //{
+                    //    context.Values.Remove(itemDel);
 
-                        await context.SaveChangesAsync();
-                    }
+                    //    await context.SaveChangesAsync();
+                    //}
 
                     var values = await context.Values.ToListAsync();
 

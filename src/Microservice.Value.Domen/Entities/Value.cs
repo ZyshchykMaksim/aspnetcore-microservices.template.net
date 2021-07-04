@@ -2,21 +2,21 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microservice.DataAccess.DB.EF;
-using Microservice.Domain.Entities;
+using Microservice.Domain;
 
 namespace Microservice.Value.Domen.Entities
 {
     /// <summary>
     /// The class for value.
     /// </summary>
-    public class Value : EntityAuditBase<Guid>, IConcurrency
+    public class Value : IEntity<Guid>, IAuditable, ISoftDelitable, IConcurrency
     {
-        #region Overrides of EntityBase<Guid>
+        #region Implementation of IEntity<T>
 
-        /// <inheritdoc cref="EntityBase"/>
+        /// <inheritdoc cref="IEntity"/>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public override Guid Id { get; set; }
+        public Guid Id { get; set; }
 
         #endregion
 
@@ -35,6 +35,32 @@ namespace Microservice.Value.Domen.Entities
         /// <inheritdoc cref="IConcurrency"/>
         [Timestamp]
         public byte[] RowVersion { get; set; }
+
+        #endregion
+
+        #region Implementation of IAuditable
+
+        /// <inheritdoc cref="IAuditable"/>
+        public string CreatedBy { get; set; }
+
+        /// <inheritdoc cref="IAuditable"/>
+        public DateTime CreatedUtc { get; set; }
+
+        /// <inheritdoc cref="IAuditable"/>
+        public string LastModifiedBy { get; set; }
+
+        /// <inheritdoc cref="IAuditable"/>
+        public DateTime LastModifiedUtc { get; set; }
+
+        #endregion
+
+        #region Implementation of ISoftDelitable
+
+        /// <inheritdoc cref="ISoftDelitable"/>
+        public string DeletedBy { get; set; }
+
+        /// <inheritdoc cref="ISoftDelitable"/>
+        public DateTime? DeletedUtc { get; set; }
 
         #endregion
     }
