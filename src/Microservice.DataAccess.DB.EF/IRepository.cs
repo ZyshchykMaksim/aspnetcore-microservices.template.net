@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microservice.Domain;
 
 namespace Microservice.DataAccess.DB.EF
 {
     /// <summary>
     /// The repository for communication with the data source.
     /// </summary>
-    /// <typeparam name="T">The type of entity. </typeparam>
-    public interface IRepository<T> where T : class
+    /// <typeparam name="TEntity ">The type of entity. </typeparam>
+    /// <typeparam name="TKey">The type of PK.</typeparam>
+    public interface IRepository<TKey, TEntity> where TEntity : class, Intity<TKey>
     {
         /// <summary>
         /// Gets the information about entities.
@@ -20,10 +22,10 @@ namespace Microservice.DataAccess.DB.EF
         /// <param name="includes">The conditions to include tables.</param>
         /// <param name="disableTracking">The flag that indicates whether to enable tracking of changes.</param>
         /// <returns></returns>
-        Task<IReadOnlyList<T>> GetAsync(
-            Expression<Func<T, bool>> predicate = null,
-            List<Expression<Func<T, object>>> includes = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        Task<IReadOnlyList<TEntity>> FindAsync(
+            Expression<Func<TEntity, bool>> predicate = null,
+            List<Expression<Func<TEntity, object>>> includes = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             bool disableTracking = true);
 
         /// <summary>
@@ -31,13 +33,13 @@ namespace Microservice.DataAccess.DB.EF
         /// </summary>
         /// <param name="entity">The an new entity.</param>
         /// <returns></returns>
-        Task<T> AddAsync(T entity);
+        Task<TEntity> AddAsync(TEntity entity);
 
         /// <summary>
         /// Adds the range.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        public Task AddRangeAsync(IEnumerable<T> entities);
+        Task AddRangeAsync(IEnumerable<TEntity> entities);
 
         /// <summary>
         /// Updates an existing entity.
@@ -46,19 +48,19 @@ namespace Microservice.DataAccess.DB.EF
         /// <param name="updateWholeEntity">if set to <c>true</c> updates whole entity otherwise updates only modified fields.</param>
         /// <param name="rowVersion">The row version.</param>
         /// <returns></returns>
-        Task UpdateAsync(T entity, bool updateWholeEntity = false, byte[] rowVersion = null);
+        Task UpdateAsync(TEntity entity, bool updateWholeEntity = false, byte[] rowVersion = null);
 
         /// <summary>
         /// Removes an entity.
         /// </summary>
         /// <param name="entity">The an new entity.</param>
         /// <returns></returns>
-        Task RemoveAsync(T entity);
+        Task RemoveAsync(TEntity entity);
 
         /// <summary>
         /// Removes the specified range of entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        Task RemoveRangeAsync(IEnumerable<T> entities);
+        Task RemoveRangeAsync(IEnumerable<TEntity> entities);
     }
 }

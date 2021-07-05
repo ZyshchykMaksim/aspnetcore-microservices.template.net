@@ -28,7 +28,7 @@ namespace Microservice.Value.Web.Api.IoC
                     x.MigrationsAssembly(assembly.GetName().Name)));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
+            services.AddScoped(typeof(IRepository<,>), typeof(RepositoryBase<,>));
             services.AddScoped<IValueRepository, ValueRepository>();
              
             return services;

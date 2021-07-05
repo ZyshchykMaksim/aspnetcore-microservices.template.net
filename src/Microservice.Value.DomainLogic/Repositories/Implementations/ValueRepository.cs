@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Value.DomainLogic.Repositories.Implementations
 {
-    public class ValueRepository : RepositoryBase<Domen.Entities.Value>, IValueRepository
+    public class ValueRepository : RepositoryBase<Guid, Domen.Entities.Value>, IValueRepository
     {
         private readonly ValueContext _dbContext;
 

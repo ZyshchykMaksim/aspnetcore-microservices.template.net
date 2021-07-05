@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microservice.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.DataAccess.DB.EF
 {
     /// <inheritdoc />
-    public class RepositoryBase<T> : IRepository<T> where T : class
+    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class, Intity<TKey>
     {
         private readonly DbContextBase _dbContext;
 
@@ -21,13 +22,13 @@ namespace Microservice.DataAccess.DB.EF
         }
 
         /// <inheritdoc />
-        public async Task<IReadOnlyList<T>> GetAsync(
-            Expression<Func<T, bool>> predicate = null,
-            List<Expression<Func<T, object>>> includes = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        public async Task<IReadOnlyList<TEntity>> FindAsync(
+            Expression<Func<TEntity, bool>> predicate = null,
+            List<Expression<Func<TEntity, object>>> includes = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             bool disableTracking = true)
         {
-            IQueryable<T> query = _dbContext.Set<T>();
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>();
 
             if (disableTracking)
             {
@@ -53,9 +54,9 @@ namespace Microservice.DataAccess.DB.EF
         }
         
         /// <inheritdoc />
-        public async Task<T> AddAsync(T entity)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
-            await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.Set<TEntity>().AddAsync(entity);
 
             await _dbContext.SaveChangesAsync();
 
@@ -63,15 +64,15 @@ namespace Microservice.DataAccess.DB.EF
         }
 
         /// <inheritdoc />
-        public async Task AddRangeAsync(IEnumerable<T> entities)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
         {
-            await _dbContext.Set<T>().AddRangeAsync(entities);
+            await _dbContext.Set<TEntity>().AddRangeAsync(entities);
 
             await _dbContext.SaveChangesAsync();
         }
 
         /// <inheritdoc />
-        public async Task UpdateAsync(T entity, bool updateWholeEntity = false, byte[] rowVersion = null)
+        public async Task UpdateAsync(TEntity entity, bool updateWholeEntity = false, byte[] rowVersion = null)
         {
             if (updateWholeEntity)
             {
@@ -90,17 +91,17 @@ namespace Microservice.DataAccess.DB.EF
         }
 
         /// <inheritdoc />
-        public async Task RemoveAsync(T entity)
+        public async Task RemoveAsync(TEntity entity)
         {
-            _dbContext.Set<T>().Remove(entity);
+            _dbContext.Set<TEntity>().Remove(entity);
 
             await _dbContext.SaveChangesAsync();
         }
 
         /// <inheritdoc />
-        public async Task RemoveRangeAsync(IEnumerable<T> entities)
+        public async Task RemoveRangeAsync(IEnumerable<TEntity> entities)
         {
-            _dbContext.Set<T>().RemoveRange(entities);
+            _dbContext.Set<TEntity>().RemoveRange(entities);
 
             await _dbContext.SaveChangesAsync();
         }
