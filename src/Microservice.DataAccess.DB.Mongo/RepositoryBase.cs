@@ -11,7 +11,7 @@ using MongoDB.Driver;
 
 namespace Microservice.DataAccess.DB.Mongo
 {
-    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : Intity<TKey>
+    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : IEntity<TKey>
     {
         private readonly DbContextBase _dbContext;
         private readonly IMongoCollection<TEntity> _dbCollection;
@@ -68,7 +68,16 @@ namespace Microservice.DataAccess.DB.Mongo
         /// <inheritdoc />
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            var entitiesList = entities.ToList();
+
+            if (!entitiesList.Any())
+            {
+                return;
+            }
+
+            var ids = entitiesList.Select(d => d.Id);
+
+            _dbCollection.DeleteMany(Builders<TEntity>.Filter.In("_id", ids));
         }
 
         #endregion

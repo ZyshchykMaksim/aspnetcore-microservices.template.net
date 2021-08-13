@@ -9,7 +9,7 @@ namespace Microservice.Value.Domen.Entities
     /// <summary>
     /// The class for value.
     /// </summary>
-    public class Value : Intity<Guid>, IAuditable, ISoftDelitable, IConcurrency
+    public class Value : IEntity<Guid>, IAuditable, ISoftDelitable, IConcurrency
     {
         #region Implementation of IEntity<T>
 

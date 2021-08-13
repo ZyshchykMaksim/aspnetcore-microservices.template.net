@@ -3,7 +3,7 @@
     /// <summary>
     /// The interface of base entity.
     /// </summary>
-    public interface Intity<TKey>
+    public interface IEntity<TKey>
     {
         /// <summary>
         /// Gets unique identifier for base entity.

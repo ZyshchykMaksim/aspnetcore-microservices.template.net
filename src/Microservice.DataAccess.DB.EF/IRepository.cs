@@ -12,7 +12,7 @@ namespace Microservice.DataAccess.DB.EF
     /// </summary>
     /// <typeparam name="TEntity ">The type of entity. </typeparam>
     /// <typeparam name="TKey">The type of PK.</typeparam>
-    public interface IRepository<TKey, TEntity> where TEntity : class, Intity<TKey>
+    public interface IRepository<TKey, TEntity> where TEntity : class, IEntity<TKey>
     {
         /// <summary>
         /// Gets the information about entities.

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Microservice.DataAccess.DB.EF
 {
     /// <inheritdoc />
-    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class, Intity<TKey>
+    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class, IEntity<TKey>
     {
         private readonly DbContextBase _dbContext;
 

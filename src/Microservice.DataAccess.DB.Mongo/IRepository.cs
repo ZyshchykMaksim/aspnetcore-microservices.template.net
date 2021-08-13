@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using Microservice.Domain;
 
 namespace Microservice.DataAccess.DB.Mongo
@@ -11,7 +10,7 @@ namespace Microservice.DataAccess.DB.Mongo
     /// </summary>
     /// <typeparam name="TEntity ">The type of entity. </typeparam>
     /// <typeparam name="TKey">The type of PK.</typeparam>
-    public interface IRepository<TKey, TEntity> where TEntity : Intity<TKey>
+    public interface IRepository<TKey, TEntity> where TEntity : IEntity<TKey>
     {
         /// <summary>
         /// Finds entitis according to predicate.
