@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.Domain\Microservice.Entities.MSSQL.csproj" />
+    <ProjectReference Include="..\Microservice.Entities.MSSQL\Microservice.Entities.MSSQL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

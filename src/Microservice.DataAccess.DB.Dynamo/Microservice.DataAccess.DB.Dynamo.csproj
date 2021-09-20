@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.Entities\Microservice.Entities.DynamoDb.csproj" />
+    <ProjectReference Include="..\Microservice.Entities.DynamoDb\Microservice.Entities.DynamoDb.csproj" />
   </ItemGroup>
 
 </Project>
