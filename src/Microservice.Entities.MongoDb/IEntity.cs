@@ -6,7 +6,7 @@ namespace Microservice.Entities.MongoDb
     /// This class represents a basic document that can be stored in MongoDb.
     /// Your document must implement this class in order for the MongoDbRepository to handle them.
     /// </summary>
-    public interface IDocument<TKey> where TKey : IEquatable<TKey>
+    public interface IEntity<TKey> where TKey : IEquatable<TKey>
     {
         /// <summary>
         /// The primary key, which must be decorated with the [BsonId] attribute 

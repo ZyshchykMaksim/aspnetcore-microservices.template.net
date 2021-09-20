@@ -8,46 +8,46 @@ namespace Microservice.DataAccess.DB.Mongo
     /// <summary>
     /// The repository for communication with the data source.
     /// </summary>
-    public interface IRepository<TKey, TDocument> where TDocument : IDocument<TKey> where TKey : IEquatable<TKey>
+    public interface IRepository<TKey, TEntity> where TEntity : IEntity<TKey> where TKey : IEquatable<TKey>
     {
         /// <summary>
         /// Finds entitis according to predicate.
         /// </summary>
         /// <param name="predicate">The predicate.</param>
         /// <returns></returns>
-        public IReadOnlyList<TDocument> Find(Expression<Func<TDocument, bool>> predicate);
+        public IReadOnlyList<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         /// <summary>
         /// Adds an new entity.
         /// </summary>
         /// <param name="entity">The an new entity.</param>
         /// <returns></returns>
-        void Add(TDocument entity);
+        void Add(TEntity entity);
 
         /// <summary>
         /// Adds the range.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        void AddRange(IEnumerable<TDocument> entities);
+        void AddRange(IEnumerable<TEntity> entities);
 
         /// <summary>
         /// Updates an existing entity.
         /// </summary>
         /// <param name="entity">The an new entity.</param>
         /// <returns></returns>
-        void Update(TDocument entity);
+        void Update(TEntity entity);
 
         /// <summary>
         /// Removes an entity.
         /// </summary>
         /// <param name="entity">The an new entity.</param>
         /// <returns></returns>
-        void Remove(TDocument entity);
+        void Remove(TEntity entity);
 
         /// <summary>
         /// Removes the specified range of entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        void RemoveRange(IEnumerable<TDocument> entities);
+        void RemoveRange(IEnumerable<TEntity> entities);
     }
 }
