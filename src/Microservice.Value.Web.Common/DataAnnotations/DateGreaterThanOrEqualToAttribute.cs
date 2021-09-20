@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microservice.Web.Common.DataAnnotations
+namespace Microservice.Common.Web.DataAnnotations
 {
     /// <summary>
     /// The class provides to check that the date greater than value in parameter.

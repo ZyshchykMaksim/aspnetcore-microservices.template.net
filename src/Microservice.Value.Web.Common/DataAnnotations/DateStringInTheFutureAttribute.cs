@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Microservice.Web.Common.DataAnnotations
+namespace Microservice.Common.Web.DataAnnotations
 {
     /// <summary>
     /// The class provides to check that provided date string is in the future.

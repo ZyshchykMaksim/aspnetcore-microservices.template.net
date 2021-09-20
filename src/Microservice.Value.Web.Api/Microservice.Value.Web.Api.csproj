@@ -37,7 +37,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Microservice.Value.DomainLogic\Microservice.Value.DomainLogic.csproj" />
     <ProjectReference Include="..\Microservice.Value.Domen\Microservice.Value.Domen.csproj" />
-    <ProjectReference Include="..\Microservice.Value.Web.Common\Microservice.Web.Common.csproj" />
+    <ProjectReference Include="..\Microservice.Value.Web.Common\Microservice.Common.Web.csproj" />
   </ItemGroup>
 
 </Project>

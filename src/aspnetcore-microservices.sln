@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Entities.MSSQL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.MSSQL", "Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.MSSQL.csproj", "{C0F82945-4F45-4479-B60A-321026995218}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Web.Common", "Microservice.Value.Web.Common\Microservice.Web.Common.csproj", "{FAE17750-6641-418F-BC34-CA45AA394760}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Common.Web", "Microservice.Value.Web.Common\Microservice.Common.Web.csproj", "{FAE17750-6641-418F-BC34-CA45AA394760}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Domen", "Microservice.Value.Domen\Microservice.Value.Domen.csproj", "{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182}"
 EndProject
