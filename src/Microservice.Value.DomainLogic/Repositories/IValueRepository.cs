@@ -6,7 +6,7 @@ using Microservice.Value.DomainLogic.Models.Pagination;
 
 namespace Microservice.Value.DomainLogic.Repositories
 {
-    public interface IValueRepository : IRepository<Guid, Domen.Entities.Value>
+    public interface IValueRepository : IRepository<Domen.Entities.Value>
     {
         /// <summary>
         /// Gets value by unique identifier.

@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{EB49B8EB-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit-tests", "unit-tests", "{A5A48792-1BB4-410F-B25C-DE749656D329}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "value", "value", "{E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "valueservice", "valueservice", "{E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web-clients", "web-clients", "{8CE7EA42-7141-4639-B9E0-C5E2CC8CF29A}"
 EndProject

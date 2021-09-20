@@ -4,17 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using Microservice.Entities.MongoDb;
 using MongoDB.Driver;
 
-
 namespace Microservice.DataAccess.DB.Mongo
 {
-    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : IEntity<TKey>
+    public class RepositoryBase<TKey, TDocument> : IRepository<TKey, TDocument> where TDocument : IDocument<TKey> where TKey : IEquatable<TKey>
     {
         private readonly DbContextBase _dbContext;
-        private readonly IMongoCollection<TEntity> _dbCollection;
+        private readonly IMongoCollection<TDocument> _dbCollection;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryBase"/> class.
@@ -30,43 +28,43 @@ namespace Microservice.DataAccess.DB.Mongo
                 throw new DataException("The table name is not defined. INSTRUCTIONS: Use the Table attribute for entity.");
             }
 
-            _dbCollection = dbContext.Database.GetCollection<TEntity>(tableName);
+            _dbCollection = dbContext.Database.GetCollection<TDocument>(tableName);
         }
 
         #region Implementation of IRepository<T>
 
         /// <inheritdoc />
-        public IReadOnlyList<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public IReadOnlyList<TDocument> Find(Expression<Func<TDocument, bool>> predicate)
         {
             return _dbCollection.Find(predicate).ToList();
         }
 
         /// <inheritdoc />
-        public void Add(TEntity entity)
+        public void Add(TDocument entity)
         {
             _dbCollection.InsertOne(entity);
         }
 
         /// <inheritdoc />
-        public void AddRange(IEnumerable<TEntity> entities)
+        public void AddRange(IEnumerable<TDocument> entities)
         {
             _dbCollection.InsertMany(entities);
         }
 
         /// <inheritdoc />
-        public void Update(TEntity entity)
+        public void Update(TDocument entity)
         {
-            _dbCollection.ReplaceOne(Builders<TEntity>.Filter.Eq("_id", entity.Id), entity);
+            _dbCollection.ReplaceOne(Builders<TDocument>.Filter.Eq("_id", entity.Id), entity);
         }
 
         /// <inheritdoc />
-        public void Remove(TEntity entity)
+        public void Remove(TDocument entity)
         {
-            _dbCollection.DeleteOne(Builders<TEntity>.Filter.Eq("_id", entity.Id));
+            _dbCollection.DeleteOne(Builders<TDocument>.Filter.Eq("_id", entity.Id));
         }
 
         /// <inheritdoc />
-        public void RemoveRange(IEnumerable<TEntity> entities)
+        public void RemoveRange(IEnumerable<TDocument> entities)
         {
             var entitiesList = entities.ToList();
 
@@ -77,7 +75,7 @@ namespace Microservice.DataAccess.DB.Mongo
 
             var ids = entitiesList.Select(d => d.Id);
 
-            _dbCollection.DeleteMany(Builders<TEntity>.Filter.In("_id", ids));
+            _dbCollection.DeleteMany(Builders<TDocument>.Filter.In("_id", ids));
         }
 
         #endregion
@@ -90,7 +88,7 @@ namespace Microservice.DataAccess.DB.Mongo
         /// <returns></returns>
         private string GetCollectionName()
         {
-            return (typeof(TEntity).GetCustomAttributes(typeof(TableAttribute), true).FirstOrDefault() as TableAttribute)?.Name;
+            return (typeof(TDocument).GetCustomAttributes(typeof(TableAttribute), true).FirstOrDefault() as TableAttribute)?.Name;
         }
 
         #endregion
