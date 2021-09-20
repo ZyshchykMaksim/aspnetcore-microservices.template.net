@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Microservice.Domain;
+using Microservice.Entities.MongoDb;
 
 namespace Microservice.DataAccess.DB.Mongo
 {

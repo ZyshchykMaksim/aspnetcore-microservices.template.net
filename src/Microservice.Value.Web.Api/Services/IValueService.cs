@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microservice.Domain.Models.Pagination;
 using Microservice.Value.Web.Api.Models;
 
 namespace Microservice.Value.Web.Api.Services

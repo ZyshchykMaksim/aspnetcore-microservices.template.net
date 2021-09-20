@@ -1,5 +1,5 @@
 ﻿using System;
-using Microservice.Domain.Models.Search;
+using Microservice.Entities.MSSQL.Models.Search;
 using Microservice.Value.DomainLogic.Enums;
 
 namespace Microservice.Value.DomainLogic.Models

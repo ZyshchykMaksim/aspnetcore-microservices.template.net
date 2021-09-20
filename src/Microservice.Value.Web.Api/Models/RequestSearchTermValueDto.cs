@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microservice.Domain.Models.Search;
+using Microservice.Entities.MSSQL.Models.Search;
 using Microservice.Value.DomainLogic.Enums;
 using Microservice.Web.Common.DataAnnotations;
 

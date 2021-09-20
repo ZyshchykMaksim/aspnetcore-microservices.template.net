@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microservice.Domain;
+using Microservice.Entities.MSSQL;
 
-namespace Microservice.DataAccess.DB.EF
+namespace Microservice.DataAccess.DB.MSSQL
 {
     /// <summary>
     /// The repository for communication with the data source.

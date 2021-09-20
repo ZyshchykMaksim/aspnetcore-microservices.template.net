@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using Microservice.Domain.Models.Pagination;
+using Microservice.Entities.MSSQL.Models.Pagination;
 using Microservice.Value.Web.Api.Models;
 
 namespace Microservice.Value.Web.Api.Mappings

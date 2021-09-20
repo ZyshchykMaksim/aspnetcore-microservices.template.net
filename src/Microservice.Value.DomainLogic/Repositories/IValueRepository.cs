@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microservice.DataAccess.DB.EF;
-using Microservice.Domain.Models.Pagination;
+using Microservice.DataAccess.DB.MSSQL;
+using Microservice.Entities.MSSQL.Models.Pagination;
 using Microservice.Value.DomainLogic.Models;
 
 namespace Microservice.Value.DomainLogic.Repositories

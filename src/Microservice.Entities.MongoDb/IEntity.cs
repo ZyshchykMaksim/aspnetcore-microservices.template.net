@@ -1,4 +1,4 @@
-﻿namespace Microservice.Entities.MSSQL
+﻿namespace Microservice.Entities.MongoDb
 {
     /// <summary>
     /// The interface of base entity.

@@ -1,4 +1,4 @@
-﻿namespace Microservice.Domain.Models.Search
+﻿namespace Microservice.Entities.MSSQL.Models.Search
 {
     /// <summary>
     /// The base class to search terms.

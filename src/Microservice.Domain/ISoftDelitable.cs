@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microservice.Domain
+namespace Microservice.Entities.MSSQL
 {
     /// <summary>
     /// Indicates that entity supports soft delete.

@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
+    <ProjectReference Include="..\Microservice.Entities.MongoDb\Microservice.Entities.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

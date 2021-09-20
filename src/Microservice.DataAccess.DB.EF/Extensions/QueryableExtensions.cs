@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microservice.Entities.MSSQL.Models.Pagination;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.DataAccess.DB.EF.Extensions
+namespace Microservice.DataAccess.DB.MSSQL.Extensions
 {
     /// <summary>
     /// The extension methods for the IQueryable type.
@@ -21,7 +22,7 @@ namespace Microservice.DataAccess.DB.EF.Extensions
         /// <param name="limit">The limit.</param>
         /// <returns>Paged result.</returns>
         /// <exception cref="ArgumentNullException">target</exception>
-        public static Domain.Models.Pagination.PagedResult<T> GetPagedResult<T>(
+        public static PagedResult<T> GetPagedResult<T>(
             this IQueryable<T> target,
             int? startIndex = null,
             int? limit = null
@@ -44,7 +45,7 @@ namespace Microservice.DataAccess.DB.EF.Extensions
                 target = target.Take(limit.Value);
             }
 
-            return new Domain.Models.Pagination.PagedResult<T>()
+            return new PagedResult<T>()
             {
                 Results = target.ToList(),
                 Skip = startIndex ?? 0,
@@ -62,7 +63,7 @@ namespace Microservice.DataAccess.DB.EF.Extensions
         /// <param name="limit">The limit.</param>
         /// <returns>Paged result.</returns>
         /// <exception cref="ArgumentNullException">target</exception>
-        public static async Task<Domain.Models.Pagination.PagedResult<T>> GetPagedResultAsync<T>(
+        public static async Task<PagedResult<T>> GetPagedResultAsync<T>(
             this IQueryable<T> target,
             int? startIndex = null,
             int? limit = null
@@ -85,7 +86,7 @@ namespace Microservice.DataAccess.DB.EF.Extensions
                 target = target.Take(limit.Value);
             }
 
-            return new Domain.Models.Pagination.PagedResult<T>()
+            return new PagedResult<T>()
             {
                 Results = await target.ToListAsync(),
                 Skip = startIndex ?? 0,

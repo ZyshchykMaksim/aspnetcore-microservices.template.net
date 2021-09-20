@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Microservice.DataAccess.DB.EF
+﻿namespace Microservice.DataAccess.DB.MSSQL
 {
     public interface IConcurrency
     {

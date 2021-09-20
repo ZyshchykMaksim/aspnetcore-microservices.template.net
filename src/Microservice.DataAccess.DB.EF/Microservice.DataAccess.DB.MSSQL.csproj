@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Microservice.DataAccess.DB.MSSQL</AssemblyName>
+    <RootNamespace>Microservice.DataAccess.DB.MSSQL</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
+    <ProjectReference Include="..\Microservice.Domain\Microservice.Entities.MSSQL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

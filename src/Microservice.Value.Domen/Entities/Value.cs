@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microservice.DataAccess.DB.EF;
-using Microservice.Domain;
+using Microservice.DataAccess.DB.MSSQL;
+using Microservice.Entities.MSSQL;
 
 namespace Microservice.Value.Domen.Entities
 {

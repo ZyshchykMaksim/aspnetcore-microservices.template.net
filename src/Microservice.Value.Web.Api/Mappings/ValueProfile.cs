@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microservice.Domain.Models.Pagination;
 using Microservice.Value.DomainLogic.Models;
 using Microservice.Value.Web.Api.Models;
 

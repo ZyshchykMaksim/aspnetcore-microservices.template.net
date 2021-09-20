@@ -1,4 +1,4 @@
-﻿namespace Microservice.Domain.Enums
+﻿namespace Microservice.Entities.MSSQL.Enums
 {
     /// <summary>
     /// The collection of possible values for sort direction.

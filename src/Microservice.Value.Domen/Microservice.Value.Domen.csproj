@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.EF.csproj" />
-    <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
+    <ProjectReference Include="..\Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.MSSQL.csproj" />
+    <ProjectReference Include="..\Microservice.Domain\Microservice.Entities.MSSQL.csproj" />
   </ItemGroup>
 
 </Project>

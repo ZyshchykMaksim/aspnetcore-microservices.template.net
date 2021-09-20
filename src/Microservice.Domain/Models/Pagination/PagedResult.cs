@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Microservice.Domain.Models.Pagination
+namespace Microservice.Entities.MSSQL.Models.Pagination
 {
     /// <summary>
     /// The class provides pagination items.

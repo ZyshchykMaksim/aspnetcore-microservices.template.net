@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Common", "Microservice.Common\Microservice.Common.csproj", "{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Domain", "Microservice.Domain\Microservice.Domain.csproj", "{98ED2D01-674F-4729-B0AE-9A823F5B9465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Entities.MSSQL", "Microservice.Domain\Microservice.Entities.MSSQL.csproj", "{98ED2D01-674F-4729-B0AE-9A823F5B9465}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.EF", "Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.EF.csproj", "{C0F82945-4F45-4479-B60A-321026995218}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.MSSQL", "Microservice.DataAccess.DB.EF\Microservice.DataAccess.DB.MSSQL.csproj", "{C0F82945-4F45-4479-B60A-321026995218}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Web.Common", "Microservice.Value.Web.Common\Microservice.Web.Common.csproj", "{FAE17750-6641-418F-BC34-CA45AA394760}"
 EndProject
@@ -30,6 +30,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.DomainLogic", "Microservice.Value.DomainLogic\Microservice.Value.DomainLogic.csproj", "{80A419D5-7BDD-4012-BA89-87CDF5044AE1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.Mongo", "Microservice.DataAccess.DB.Mongo\Microservice.DataAccess.DB.Mongo.csproj", "{74C6A079-981C-4087-8713-648CCED5F2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Entities.DynamoDb", "Microservice.Entities\Microservice.Entities.DynamoDb.csproj", "{668ED877-91D7-4023-8163-FD20FADE2D8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.DataAccess.DB.Dynamo", "Microservice.DataAccess.DB.Dynamo\Microservice.DataAccess.DB.Dynamo.csproj", "{FA572573-9520-44C3-973F-471C818CE30E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Entities.MongoDb", "Microservice.Entities.MongoDb\Microservice.Entities.MongoDb.csproj", "{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +75,18 @@ Global
 		{74C6A079-981C-4087-8713-648CCED5F2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74C6A079-981C-4087-8713-648CCED5F2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74C6A079-981C-4087-8713-648CCED5F2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668ED877-91D7-4023-8163-FD20FADE2D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668ED877-91D7-4023-8163-FD20FADE2D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668ED877-91D7-4023-8163-FD20FADE2D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668ED877-91D7-4023-8163-FD20FADE2D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA572573-9520-44C3-973F-471C818CE30E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA572573-9520-44C3-973F-471C818CE30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA572573-9520-44C3-973F-471C818CE30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA572573-9520-44C3-973F-471C818CE30E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +101,9 @@ Global
 		{DD2DF7E2-98E4-4617-B933-478823A3735A} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{80A419D5-7BDD-4012-BA89-87CDF5044AE1} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{74C6A079-981C-4087-8713-648CCED5F2B9} = {B920E10F-88F6-4FCF-B1BD-2C132C1D9B75}
+		{668ED877-91D7-4023-8163-FD20FADE2D8F} = {EB49B8EB-9789-4A4A-A859-D8D531BC186B}
+		{FA572573-9520-44C3-973F-471C818CE30E} = {B920E10F-88F6-4FCF-B1BD-2C132C1D9B75}
+		{1D481FFB-8FCA-4E06-90F5-EDF760B02D09} = {EB49B8EB-9789-4A4A-A859-D8D531BC186B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE88A9A1-886F-43EB-B07F-E72165D1746F}

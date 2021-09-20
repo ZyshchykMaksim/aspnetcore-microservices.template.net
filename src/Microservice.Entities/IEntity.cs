@@ -1,4 +1,4 @@
-﻿namespace Microservice.Entities.MSSQL
+﻿namespace Microservice.Entities.DynamoDb
 {
     /// <summary>
     /// The interface of base entity.

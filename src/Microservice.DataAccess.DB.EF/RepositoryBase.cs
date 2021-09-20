@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microservice.Domain;
+using Microservice.Entities.MSSQL;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.DataAccess.DB.EF
+namespace Microservice.DataAccess.DB.MSSQL
 {
     /// <inheritdoc />
     public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class, IEntity<TKey>

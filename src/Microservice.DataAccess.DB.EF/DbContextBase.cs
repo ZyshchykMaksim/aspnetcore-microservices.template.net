@@ -3,11 +3,11 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Domain;
+using Microservice.Entities.MSSQL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Microservice.DataAccess.DB.EF
+namespace Microservice.DataAccess.DB.MSSQL
 {
     public class DbContextBase : DbContext
     {
