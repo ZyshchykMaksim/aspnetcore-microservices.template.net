@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microservice.DataAccess.DB.MSSQL;
-using Microservice.Entities.MSSQL.Models.Pagination;
 using Microservice.Value.DomainLogic.Models;
+using Microservice.Value.DomainLogic.Models.Pagination;
 
 namespace Microservice.Value.DomainLogic.Repositories
 {

@@ -1,6 +1,6 @@
 ﻿using System;
-using Microservice.Entities.MSSQL.Models.Search;
 using Microservice.Value.DomainLogic.Enums;
+using Microservice.Value.DomainLogic.Models.Search;
 
 namespace Microservice.Value.DomainLogic.Models
 {

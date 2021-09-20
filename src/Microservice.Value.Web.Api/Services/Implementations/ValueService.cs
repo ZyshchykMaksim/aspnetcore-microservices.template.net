@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dawn;
-using Microservice.Entities.MSSQL.Models.Pagination;
 using Microservice.Value.DomainLogic.Models;
+using Microservice.Value.DomainLogic.Models.Pagination;
 using Microservice.Value.DomainLogic.Repositories;
 using Microservice.Value.Web.Api.Models;
 

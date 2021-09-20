@@ -1,7 +1,7 @@
 ﻿using System;
-using Microservice.Entities.MSSQL.Enums;
+using Microservice.Value.DomainLogic.Enums;
 
-namespace Microservice.Entities.MSSQL.Models.Search
+namespace Microservice.Value.DomainLogic.Models.Search
 {
     /// <summary>
     /// The base class to search terms and order data.

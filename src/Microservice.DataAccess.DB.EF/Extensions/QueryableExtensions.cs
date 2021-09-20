@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microservice.Entities.MSSQL.Models.Pagination;
+using Microservice.Value.DomainLogic.Models.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.DataAccess.DB.MSSQL.Extensions

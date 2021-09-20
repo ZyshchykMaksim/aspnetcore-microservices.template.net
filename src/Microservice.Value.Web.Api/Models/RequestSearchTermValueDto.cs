@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Microservice.Common.Web.DataAnnotations;
-using Microservice.Entities.MSSQL.Models.Search;
 using Microservice.Value.DomainLogic.Enums;
+using Microservice.Value.DomainLogic.Models.Search;
 
 namespace Microservice.Value.Web.Api.Models
 {
