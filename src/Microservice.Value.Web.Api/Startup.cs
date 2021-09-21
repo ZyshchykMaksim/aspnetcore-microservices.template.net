@@ -22,12 +22,11 @@ namespace Microservice.Value.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddHttpContextAccessor();
             services.AddDataAccess(Configuration);
             services.AddApplicationServices(Configuration);
-            services.AddControllers();
-
             services.AddAutoMapper(typeof(Startup));
-
             services.AddLZ4Compressor();
             services.AddEasyCaching(options =>
             {
@@ -65,7 +64,6 @@ namespace Microservice.Value.Web.Api
             }
 
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
