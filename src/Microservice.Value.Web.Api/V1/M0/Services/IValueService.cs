@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microservice.Value.Web.Api.Models;
+using Microservice.Value.Web.Api.V1.M0.Models;
 
-namespace Microservice.Value.Web.Api.Services
+namespace Microservice.Value.Web.Api.V1.M0.Services
 {
     /// <summary>
     /// Allows to manage value data.

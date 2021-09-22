@@ -1,9 +1,9 @@
 ﻿using System;
 using AutoMapper;
 using Microservice.Value.DomainLogic.Models.Pagination;
-using Microservice.Value.Web.Api.Models;
+using Microservice.Value.Web.Api.V1.M0.Models;
 
-namespace Microservice.Value.Web.Api.Mappings
+namespace Microservice.Value.Web.Api.V1.M0.Mappings
 {
     /// <summary>
     /// Profile with <see cref="Common"/> automapper mappings.

@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microservice.Value.Web.Api.Models;
-using Microservice.Value.Web.Api.Services;
+using Microservice.Value.Web.Api.V1.M0.Models;
+using Microservice.Value.Web.Api.V1.M0.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Microservice.Value.Web.Api.Controllers
+namespace Microservice.Value.Web.Api.V1.M0.Controllers
 {
+    [ApiVersion("1.0")]
+    [ApiVersion("1.1")]
+    [Route("api/{version:apiVersion}/values")]
     [ApiController]
-    [Route("api/value")]
     public class ValueController : ControllerBase
     {
         private readonly IValueService _valueService;
@@ -23,7 +25,7 @@ namespace Microservice.Value.Web.Api.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = nameof(GetValues))]
+        [HttpGet(Name = nameof(GetValues)), MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(PagedResultDto<ResponseValueDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<PagedResultDto<ResponseValueDto>>> GetValues([FromQuery] RequestSearchTermValueDto searchRequest)
         {

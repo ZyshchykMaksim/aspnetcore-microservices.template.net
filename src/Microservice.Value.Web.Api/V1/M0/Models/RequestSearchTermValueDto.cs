@@ -4,7 +4,7 @@ using Microservice.Common.Web.DataAnnotations;
 using Microservice.Value.DomainLogic.Enums;
 using Microservice.Value.DomainLogic.Models.Search;
 
-namespace Microservice.Value.Web.Api.Models
+namespace Microservice.Value.Web.Api.V1.M0.Models
 {
     public class RequestSearchTermValueDto : OrderedQuerySearchBase<ValueOrderBy>
     {

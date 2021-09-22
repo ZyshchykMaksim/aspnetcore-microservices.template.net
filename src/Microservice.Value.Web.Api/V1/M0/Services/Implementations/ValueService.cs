@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dawn;
 using Microservice.Value.DomainLogic.Models;
 using Microservice.Value.DomainLogic.Models.Pagination;
 using Microservice.Value.DomainLogic.Repositories;
-using Microservice.Value.Web.Api.Models;
+using Microservice.Value.Web.Api.V1.M0.Models;
 
-namespace Microservice.Value.Web.Api.Services.Implementations
+namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
 {
     /// <inheritdoc cref="IValueService"/>
     public class ValueService : IValueService

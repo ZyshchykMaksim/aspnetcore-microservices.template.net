@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Microservice.Value.Web.Api.Models
+namespace Microservice.Value.Web.Api.V1.M0.Models
 {
     /// <summary>
     /// The class provides pagination items.

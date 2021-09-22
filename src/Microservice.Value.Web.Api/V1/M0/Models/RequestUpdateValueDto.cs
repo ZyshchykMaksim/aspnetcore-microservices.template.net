@@ -1,4 +1,4 @@
-﻿namespace Microservice.Value.Web.Api.Models
+﻿namespace Microservice.Value.Web.Api.V1.M0.Models
 {
     public class RequestUpdateValueDto : RequestCreateValueDto
     {

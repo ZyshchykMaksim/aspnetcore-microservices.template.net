@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microservice.Value.DomainLogic.Models;
-using Microservice.Value.Web.Api.Models;
+using Microservice.Value.Web.Api.V1.M0.Models;
 
-namespace Microservice.Value.Web.Api.Mappings
+namespace Microservice.Value.Web.Api.V1.M0.Mappings
 {
     /// <inheritdoc cref="Profile"/>
     public class ValueProfile : Profile

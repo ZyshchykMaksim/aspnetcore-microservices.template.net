@@ -1,5 +1,5 @@
-﻿using Microservice.Value.Web.Api.Services;
-using Microservice.Value.Web.Api.Services.Implementations;
+﻿using Microservice.Value.Web.Api.V1.M0.Services;
+using Microservice.Value.Web.Api.V1.M0.Services.Implementations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
