@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.DataAccess.DB.MSSQL\Microservice.DataAccess.DB.MSSQL.csproj" />
     <ProjectReference Include="..\Microservice.Entities.MSSQL\Microservice.Entities.MSSQL.csproj" />
   </ItemGroup>
 

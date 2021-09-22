@@ -17,17 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Common", "Microservice.Common\Microservice.Common.csproj", "{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Domen", "Microservice.Value.Domen\Microservice.Value.Domen.csproj", "{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Web.Api", "Microservice.Value.Web.Api\Microservice.Value.Web.Api.csproj", "{DD2DF7E2-98E4-4617-B933-478823A3735A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.DomainLogic", "Microservice.Value.DomainLogic\Microservice.Value.DomainLogic.csproj", "{80A419D5-7BDD-4012-BA89-87CDF5044AE1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.Mongo", "Microservice.DataAccess.DB.Mongo\Microservice.DataAccess.DB.Mongo.csproj", "{74C6A079-981C-4087-8713-648CCED5F2B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.DataAccess.DB.Dynamo", "Microservice.DataAccess.DB.Dynamo\Microservice.DataAccess.DB.Dynamo.csproj", "{FA572573-9520-44C3-973F-471C818CE30E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.Dynamo", "Microservice.DataAccess.DB.Dynamo\Microservice.DataAccess.DB.Dynamo.csproj", "{FA572573-9520-44C3-973F-471C818CE30E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Entities.MongoDb", "Microservice.Entities.MongoDb\Microservice.Entities.MongoDb.csproj", "{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Entities.MongoDb", "Microservice.Entities.MongoDb\Microservice.Entities.MongoDb.csproj", "{1D481FFB-8FCA-4E06-90F5-EDF760B02D09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Common.Web", "Microservice.Common.Web\Microservice.Common.Web.csproj", "{EEC3D128-606C-48D7-B259-E7FEA7B0059D}"
 EndProject
@@ -36,6 +34,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Entities.MSSQL", "Microservice.Entities.MSSQL\Microservice.Entities.MSSQL.csproj", "{CCE4B342-3EC9-40A2-A830-DA59336527F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.MSSQL", "Microservice.DataAccess.DB.MSSQL\Microservice.DataAccess.DB.MSSQL.csproj", "{88DF38A0-B5C5-4437-8D1E-28FCB8882C71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Entities", "Microservice.Value.Entities\Microservice.Value.Entities.csproj", "{BF0F53E3-EBD0-462E-A000-778CE0148632}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,6 @@ Global
 		{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD2DF7E2-98E4-4617-B933-478823A3735A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DD2DF7E2-98E4-4617-B933-478823A3735A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD2DF7E2-98E4-4617-B933-478823A3735A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{88DF38A0-B5C5-4437-8D1E-28FCB8882C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88DF38A0-B5C5-4437-8D1E-28FCB8882C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88DF38A0-B5C5-4437-8D1E-28FCB8882C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF0F53E3-EBD0-462E-A000-778CE0148632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0F53E3-EBD0-462E-A000-778CE0148632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0F53E3-EBD0-462E-A000-778CE0148632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0F53E3-EBD0-462E-A000-778CE0148632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,7 +94,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E31EB447-432A-4C51-ADBB-EDD1F2E15BB2} = {B0A72AB7-92AC-459A-9273-895AD0434D7C}
 		{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A} = {EB49B8EB-9789-4A4A-A859-D8D531BC186B}
-		{FBC0FB22-0DE4-4BC7-B18C-4E136C9D7182} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{DD2DF7E2-98E4-4617-B933-478823A3735A} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{80A419D5-7BDD-4012-BA89-87CDF5044AE1} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 		{74C6A079-981C-4087-8713-648CCED5F2B9} = {B920E10F-88F6-4FCF-B1BD-2C132C1D9B75}
@@ -104,6 +103,7 @@ Global
 		{46F617A5-48A2-4D42-A9EC-C2C0380D8B0F} = {EB49B8EB-9789-4A4A-A859-D8D531BC186B}
 		{CCE4B342-3EC9-40A2-A830-DA59336527F3} = {EB49B8EB-9789-4A4A-A859-D8D531BC186B}
 		{88DF38A0-B5C5-4437-8D1E-28FCB8882C71} = {B920E10F-88F6-4FCF-B1BD-2C132C1D9B75}
+		{BF0F53E3-EBD0-462E-A000-778CE0148632} = {E31EB447-432A-4C51-ADBB-EDD1F2E15BB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE88A9A1-886F-43EB-B07F-E72165D1746F}

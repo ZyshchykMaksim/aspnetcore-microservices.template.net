@@ -1,15 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microservice.DataAccess.DB.MSSQL;
 using Microservice.Entities.MSSQL;
 
-namespace Microservice.Value.Domen.Entities
+namespace Microservice.Value.Entities
 {
     /// <summary>
     /// The class for value.
     /// </summary>
-    public class Value : IEntity<Guid>, IAuditable, ISoftDelitable, IConcurrency
+    public sealed class Value : IEntity<Guid>, IAuditable, ISoftDelitable, IConcurrency
     {
         #region Implementation of IEntity<T>
 

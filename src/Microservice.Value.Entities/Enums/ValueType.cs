@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Microservice.Value.Domen.Enums
+namespace Microservice.Value.Entities
 {
     /// <summary>
     /// The type of value.

@@ -38,7 +38,7 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
             var searchValueMapp = _mapper.Map<RequestSearchTermValueDto, SearchTermValue>(searchValueDto);
 
             var valuesEntity = await _valueRepository.GetAsync(searchValueMapp);
-            var valuesMapp = _mapper.Map<PagedResult<Domen.Entities.Value>, PagedResultDto<ResponseValueDto>>(valuesEntity);
+            var valuesMapp = _mapper.Map<PagedResult<Entities.Value>, PagedResultDto<ResponseValueDto>>(valuesEntity);
 
             return valuesMapp;
         }
@@ -53,7 +53,7 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
 
             var valueEntity = await _valueRepository.GetByIdAsync(valueId);
 
-            return _mapper.Map<Domen.Entities.Value, ResponseValueDto>(valueEntity); ;
+            return _mapper.Map<Entities.Value, ResponseValueDto>(valueEntity); ;
         }
 
         /// <inheritdoc />
@@ -61,10 +61,10 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
         {
             Guard.Argument(() => createValue).NotNull();
 
-            var valueEntityMapp = _mapper.Map<RequestCreateValueDto, Domen.Entities.Value>(createValue);
+            var valueEntityMapp = _mapper.Map<RequestCreateValueDto, Entities.Value>(createValue);
             var valueEntity = await _valueRepository.AddAsync(valueEntityMapp);
 
-            return _mapper.Map<Domen.Entities.Value, ResponseValueDto>(valueEntity);
+            return _mapper.Map<Entities.Value, ResponseValueDto>(valueEntity);
         }
 
         /// <inheritdoc />
@@ -84,10 +84,10 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
                 return null;
             }
 
-            _mapper.Map<RequestUpdateValueDto, Domen.Entities.Value>(updateValueDto, existingValue);
+            _mapper.Map<RequestUpdateValueDto, Entities.Value>(updateValueDto, existingValue);
             await _valueRepository.UpdateAsync(existingValue, false, updateValueDto.RowVersion);
 
-            return _mapper.Map<Domen.Entities.Value, ResponseValueDto>(existingValue);
+            return _mapper.Map<Entities.Value, ResponseValueDto>(existingValue);
         }
 
         /// <inheritdoc />
