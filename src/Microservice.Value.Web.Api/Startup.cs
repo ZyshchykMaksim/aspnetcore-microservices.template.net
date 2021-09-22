@@ -1,16 +1,19 @@
 using EasyCaching.Core.Configurations;
 using EasyCaching.InMemory;
+using HealthChecks.UI.Client;
+using Microservice.Value.DomainLogic.Persistence;
 using Microservice.Value.Web.Api.IoC;
 using Microservice.Value.Web.Api.Swagger;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Microservice.Value.Web.Api
@@ -76,6 +79,10 @@ namespace Microservice.Value.Web.Api
                     // add a custom operation filter which sets default values
                     options.OperationFilter<SwaggerDefaultValues>();
                 });
+
+            services.AddHealthChecks()
+                .AddDbContextCheck<ValueContext>("SQL Database Health", HealthStatus.Healthy, new[] { "mssql ", "database" })
+                .AddRedis("localhost", "Redis Health", HealthStatus.Healthy, new[] { "redis", "cache" });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,8 +92,8 @@ namespace Microservice.Value.Web.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(options => {
-
+                app.UseSwaggerUI(options =>
+                {
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
                         options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
@@ -99,6 +106,11 @@ namespace Microservice.Value.Web.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
             });
         }
     }
