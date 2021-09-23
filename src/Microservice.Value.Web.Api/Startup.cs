@@ -1,20 +1,12 @@
-using EasyCaching.Core.Configurations;
-using EasyCaching.InMemory;
 using HealthChecks.UI.Client;
-using Microservice.Value.DomainLogic.Persistence;
 using Microservice.Value.Web.Api.IoC;
-using Microservice.Value.Web.Api.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Microservice.Value.Web.Api
 {
@@ -32,57 +24,12 @@ namespace Microservice.Value.Web.Api
         {
             services.AddControllers();
             services.AddHttpContextAccessor();
-            services.AddDataAccess(Configuration);
-            services.AddApplicationServices(Configuration);
             services.AddAutoMapper(typeof(Startup));
-            services.AddLZ4Compressor();
-            services.AddEasyCaching(options =>
-            {
-                options.UseInMemory(config =>
-                {
-                    config.DBConfig = new InMemoryCachingOptions
-                    {
-                        ExpirationScanFrequency = 60
-                    };
-                }, "inmemory");
-
-                //use redis cache that named redis1
-                options.UseRedis(config =>
-                    {
-                        config.DBConfig.Endpoints.Add(new ServerEndPoint("127.0.0.1", 6379));
-                    }, "localhost")
-                    .WithJson("json")
-                    .WithCompressor("json", "lz4");
-            });
-
-            services.AddApiVersioning(o =>
-            {
-                o.AssumeDefaultVersionWhenUnspecified = true;
-                o.ReportApiVersions = true;
-                o.DefaultApiVersion = new ApiVersion(1, 0);
-            });
-            services.AddVersionedApiExplorer(
-                options =>
-                {
-                    // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
-                    // note: the specified format code will format the version as "'v'major[.minor][-status]"
-                    options.GroupNameFormat = "'v'VVV";
-
-                    // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
-                    // can also be used to control the format of the API version in route templates
-                    options.SubstituteApiVersionInUrl = true;
-                });
-            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-            services.AddSwaggerGen(
-                options =>
-                {
-                    // add a custom operation filter which sets default values
-                    options.OperationFilter<SwaggerDefaultValues>();
-                });
-
-            services.AddHealthChecks()
-                .AddDbContextCheck<ValueContext>("SQL Database Health", HealthStatus.Healthy, new[] { "mssql ", "database" })
-                .AddRedis("localhost", "Redis Health", HealthStatus.Healthy, new[] { "redis", "cache" });
+            services.AddDataAccess(Configuration);
+            services.AddDomainLogicServices(Configuration);
+            services.AddCaching(Configuration);
+            services.AddHealthCheck(Configuration);
+            services.AddApiVersioning(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

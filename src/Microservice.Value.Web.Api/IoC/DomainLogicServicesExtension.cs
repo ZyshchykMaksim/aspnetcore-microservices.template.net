@@ -5,9 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservice.Value.Web.Api.IoC
 {
-    public static class ApplicationServicesExtension
+    public static class DomainLogicServicesExtension
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDomainLogicServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IValueService, ValueService>();
 
