@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Microservice.CCmmoommon.DataAnnotations
+namespace Microservice.Common.Web.DataAnnotations
 {
     /// <summary>
     /// The class provides to check that provided date string is in the past.

@@ -8,7 +8,7 @@ namespace Microservice.DataAccess.DB.Mongo
     /// <summary>
     /// The repository for communication with the data source.
     /// </summary>
-    public interface IRepository<TKey, TEntity> where TEntity : IEntity<TKey> where TKey : IEquatable<TKey>
+    public interface IRepository<TKey, TEntity> where TEntity : Entities.IEntity<TKey> where TKey : IEquatable<TKey>
     {
         /// <summary>
         /// Finds entitis according to predicate.

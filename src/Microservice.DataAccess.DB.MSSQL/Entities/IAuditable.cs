@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microservice.Entities.MSSQL
+namespace Microservice.DataAccess.DB.MSSQL.Entities
 {
     /// <summary>
     /// The interface for audit.

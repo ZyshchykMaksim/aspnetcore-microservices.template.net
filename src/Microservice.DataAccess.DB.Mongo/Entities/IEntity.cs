@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microservice.Entities.MongoDb
+namespace Microservice.DataAccess.DB.Mongo.Entities
 {
     /// <summary>
     /// This class represents a basic document that can be stored in MongoDb.

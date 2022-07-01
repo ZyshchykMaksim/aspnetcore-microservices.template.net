@@ -1,4 +1,4 @@
-﻿namespace Microservice.Entities.MSSQL
+﻿namespace Microservice.DataAccess.DB.MSSQL.Entities
 {
     public interface IConcurrency
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Amazon.DynamoDBv2.DataModel;
-using Microservice.Entities.DynamoDb;
+using Microservice.DataAccess.DB.Dynamo.Entities;
 
 namespace Microservice.DataAccess.DB.Dynamo
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microservice.Entities.DynamoDb
+namespace Microservice.DataAccess.DB.Dynamo.Entities
 {
     /// <summary>
     /// The interface of base entity.

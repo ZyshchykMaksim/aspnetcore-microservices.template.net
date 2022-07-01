@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microservice.Common.Extensions;
 using Microservice.DataAccess.DB.MSSQL;
 using Microservice.DataAccess.DB.MSSQL.Extensions;
+using Microservice.DataAccess.DB.MSSQL.Pagination;
 using Microservice.Value.DomainLogic.Enums;
 using Microservice.Value.DomainLogic.Models;
-using Microservice.Value.DomainLogic.Models.Pagination;
 using Microservice.Value.DomainLogic.Persistence;
 using Microsoft.EntityFrameworkCore;
 

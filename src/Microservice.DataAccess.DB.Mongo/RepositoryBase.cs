@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 namespace Microservice.DataAccess.DB.Mongo
 {
-    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : IEntity<TKey> where TKey : IEquatable<TKey>
+    public class RepositoryBase<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : Entities.IEntity<TKey> where TKey : IEquatable<TKey>
     {
         private readonly DbContextBase _dbContext;
         private readonly IMongoCollection<TEntity> _dbCollection;
@@ -88,7 +88,7 @@ namespace Microservice.DataAccess.DB.Mongo
         /// <returns></returns>
         private string GetCollectionName()
         {
-            return (typeof(IEntity<TKey>).GetCustomAttributes(typeof(TableAttribute), true).FirstOrDefault() as TableAttribute)?.Name;
+            return (typeof(Entities.IEntity<TKey>).GetCustomAttributes(typeof(TableAttribute), true).FirstOrDefault() as TableAttribute)?.Name;
         }
 
         #endregion
