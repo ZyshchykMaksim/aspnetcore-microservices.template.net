@@ -2,6 +2,9 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using Dawn;
+using EasyCaching.Core;
+using EasyCaching.Core.DistributedLock;
+using EasyCaching.Redis.DistributedLock;
 using Microservice.DataAccess.DB.MSSQL.Pagination;
 using Microservice.Value.DomainLogic.Models;
 using Microservice.Value.DomainLogic.Repositories;
@@ -13,6 +16,9 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
     public class ValueService : IValueService
     {
         private readonly IValueRepository _valueRepository;
+        private readonly IRedisCachingProvider _redisCachingProvider;
+        private readonly IDistributedLockFactory _distributedLockFactory;
+  
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -20,9 +26,13 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
         /// </summary>
         public ValueService(
             IValueRepository valueRepository,
+            IRedisCachingProvider redisCachingProvider,
+            IDistributedLockFactory distributedLockFactory,
             IMapper mapper)
         {
             _valueRepository = Guard.Argument(valueRepository, nameof(valueRepository)).NotNull().Value;
+            _redisCachingProvider = Guard.Argument(redisCachingProvider, nameof(redisCachingProvider)).NotNull().Value;
+            _distributedLockFactory = Guard.Argument(distributedLockFactory, nameof(distributedLockFactory)).NotNull().Value;
             _mapper = Guard.Argument(mapper, nameof(mapper)).NotNull().Value;
         }
 

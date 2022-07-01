@@ -1,4 +1,5 @@
 ﻿using EasyCaching.Core.Configurations;
+using EasyCaching.Core.DistributedLock;
 using EasyCaching.InMemory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
