@@ -21,7 +21,7 @@ namespace Microservice.Value.Web.Api.V1.M1.Controllers
 
         [HttpGet(Name = nameof(GetValues)), MapToApiVersion("1.1")]
         [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
-        public async Task<ActionResult<object>> GetValues()
+        public ActionResult<object> GetValues()
         {
             return Ok();
         }
