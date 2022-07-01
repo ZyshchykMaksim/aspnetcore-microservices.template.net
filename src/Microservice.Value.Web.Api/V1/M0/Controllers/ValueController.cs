@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 namespace Microservice.Value.Web.Api.V1.M0.Controllers
 {
     [ApiVersion("1.0")]
-    [ApiVersion("1.1")]
     [Route("api/{version:apiVersion}/values")]
     [ApiController]
     public class ValueController : ControllerBase
@@ -25,7 +24,7 @@ namespace Microservice.Value.Web.Api.V1.M0.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = nameof(GetValues)), MapToApiVersion("1.0")]
+        [HttpGet(Name = nameof(GetValues))]
         [ProducesResponseType(typeof(PagedResultDto<ResponseValueDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<PagedResultDto<ResponseValueDto>>> GetValues([FromQuery] RequestSearchTermValueDto searchRequest)
         {

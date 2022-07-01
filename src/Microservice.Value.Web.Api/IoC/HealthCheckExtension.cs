@@ -13,9 +13,7 @@ namespace Microservice.Value.Web.Api.IoC
     {
         public static IServiceCollection AddHealthCheck(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddHealthChecks()
-                .AddDbContextCheck<ValueContext>("SQL Database Health", HealthStatus.Healthy, new[] { "mssql ", "database" })
-                .AddRedis("localhost", "Redis Health", HealthStatus.Healthy, new[] { "redis", "cache" });
+            services.AddHealthChecks();
 
             return services;
         }

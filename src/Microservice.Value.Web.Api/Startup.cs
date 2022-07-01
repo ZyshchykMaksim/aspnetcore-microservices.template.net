@@ -1,7 +1,5 @@
-using HealthChecks.UI.Client;
 using Microservice.Value.Web.Api.IoC;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
@@ -28,19 +26,20 @@ namespace Microservice.Value.Web.Api
             services.AddDataAccess(Configuration);
             services.AddDomainLogicServices(Configuration);
             services.AddCaching(Configuration);
-            services.AddHealthCheck(Configuration);
             services.AddApiVersioning(Configuration);
+            services.AddHealthCheck(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment())
+            if (!env.IsProduction())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(options =>
                 {
+                    options.UseRequestInterceptor("(req) => { req.headers['X-Client-Version'] = 'swagger'; return req; }");
+
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
                         options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
@@ -53,11 +52,7 @@ namespace Microservice.Value.Web.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health", new HealthCheckOptions()
-                {
-                    Predicate = _ => true,
-                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-                });
+                endpoints.MapHealthChecks("/health");
             });
         }
     }

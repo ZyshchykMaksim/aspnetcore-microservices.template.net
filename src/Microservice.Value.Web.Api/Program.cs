@@ -13,10 +13,14 @@ namespace Microservice.Value.Web.Api
         {
             Environment.SetEnvironmentVariable("BASEDIR", AppDomain.CurrentDomain.BaseDirectory);
 
+            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
+                          ?? throw new ApplicationException(
+                              "The ASP NET CORE_ENVIRONMENT environment variable is not defined. Please configure it.");
+
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", true)
+                .AddJsonFile($"appsettings.{envName}.json", true)
                 .Build();
 
             Log.Logger = new LoggerConfiguration()
@@ -41,9 +45,6 @@ namespace Microservice.Value.Web.Api
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog()
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }
 }
