@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Common", "Microservice.Common\Microservice.Common.csproj", "{5E6BD03A-BEED-4DD0-9D66-05F9FEBEEA6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Web.Api", "Microservice.Value.Web.Api\Microservice.Value.Web.Api.csproj", "{DD2DF7E2-98E4-4617-B933-478823A3735A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Web.Api", "Microservice.Web.Api\Microservice.Web.Api.csproj", "{DD2DF7E2-98E4-4617-B933-478823A3735A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.DomainLogic", "Microservice.Value.DomainLogic\Microservice.Value.DomainLogic.csproj", "{80A419D5-7BDD-4012-BA89-87CDF5044AE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DomainLogic", "Microservice.DomainLogic\Microservice.DomainLogic.csproj", "{80A419D5-7BDD-4012-BA89-87CDF5044AE1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.Mongo", "Microservice.DataAccess.DB.Mongo\Microservice.DataAccess.DB.Mongo.csproj", "{74C6A079-981C-4087-8713-648CCED5F2B9}"
 EndProject
@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Common.Web", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.DataAccess.DB.MSSQL", "Microservice.DataAccess.DB.MSSQL\Microservice.DataAccess.DB.MSSQL.csproj", "{88DF38A0-B5C5-4437-8D1E-28FCB8882C71}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Value.Entities", "Microservice.Value.Entities\Microservice.Value.Entities.csproj", "{BF0F53E3-EBD0-462E-A000-778CE0148632}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice.Entities", "Microservice.Entities\Microservice.Entities.csproj", "{BF0F53E3-EBD0-462E-A000-778CE0148632}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{BB8D4D1C-A47E-4227-8841-9EDA792B9199}"
 EndProject
