@@ -6,7 +6,7 @@
   "identity": "Microservice.Web.Api.Template",
   "groupIdentity":"Microservice.Web.Api.Template",
   "shortName": "microservice.web.api",
-  "sourceName": "Microservice.Web.Api",
+  "sourceName": "Microservice",
   "preferNameDirectory": true,
   "tags": {
     "language": "C#",
