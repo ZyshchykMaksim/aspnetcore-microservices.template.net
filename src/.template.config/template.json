@@ -2,14 +2,14 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Maksim Zyshchyk",
   "classifications": [ "Web", "WebAPI", "C#" ],
-  "name": "ASP.NET Core Web Api (Microservice)",
-  "identity": "AspnetCore.Microservice.Web.Api.Template",
-  "groupIdentity":"AspnetCore.Microservice.Web.Api.Template",
+  "name": "Microservice.Web.Api",
+  "identity": "Microservice.Web.Api.Template",
+  "groupIdentity":"Microservice.Web.Api.Template",
   "shortName": "microservice.web.api",
+  "sourceName": "Microservice.Web.Api",
+  "preferNameDirectory": true,
   "tags": {
     "language": "C#",
     "type":"project"
-  },
-  "sourceName": "Microservice.Web.Api",
-  "preferNameDirectory": true
+  }
 }
