@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using Microservice.Entities.MongoDb;
 using MongoDB.Driver;
 
 namespace Microservice.DataAccess.DB.Mongo

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microservice.Entities.MSSQL;
+using Microservice.DataAccess.DB.MSSQL.Entities;
 
 namespace Microservice.Value.Entities
 {

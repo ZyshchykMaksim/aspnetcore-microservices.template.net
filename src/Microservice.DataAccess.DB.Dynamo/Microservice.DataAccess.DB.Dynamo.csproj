@@ -9,8 +9,4 @@
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.3.52" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Microservice.Entities.DynamoDb\Microservice.Entities.DynamoDb.csproj" />
-  </ItemGroup>
-
 </Project>

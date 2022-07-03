@@ -18,7 +18,7 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
         private readonly IValueRepository _valueRepository;
         private readonly IRedisCachingProvider _redisCachingProvider;
         private readonly IDistributedLockFactory _distributedLockFactory;
-  
+
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -32,7 +32,8 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
         {
             _valueRepository = Guard.Argument(valueRepository, nameof(valueRepository)).NotNull().Value;
             _redisCachingProvider = Guard.Argument(redisCachingProvider, nameof(redisCachingProvider)).NotNull().Value;
-            _distributedLockFactory = Guard.Argument(distributedLockFactory, nameof(distributedLockFactory)).NotNull().Value;
+            _distributedLockFactory =
+                Guard.Argument(distributedLockFactory, nameof(distributedLockFactory)).NotNull().Value;
             _mapper = Guard.Argument(mapper, nameof(mapper)).NotNull().Value;
         }
 
@@ -45,6 +46,18 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
         /// <returns></returns>
         public async Task<PagedResultDto<ResponseValueDto>> GetAsync(RequestSearchTermValueDto searchValueDto)
         {
+            await using (var distributedLock = _distributedLockFactory.CreateLock(
+                             _redisCachingProvider.RedisName,
+                             "lock"))
+            {
+                if (await distributedLock.LockAsync(new TimeSpan(0, 1, 0).Milliseconds))
+                {
+                  
+                }
+            }
+            
+            return null;
+
             var searchValueMapp = _mapper.Map<RequestSearchTermValueDto, SearchTermValue>(searchValueDto);
 
             var valuesEntity = await _valueRepository.GetAsync(searchValueMapp);
@@ -63,7 +76,8 @@ namespace Microservice.Value.Web.Api.V1.M0.Services.Implementations
 
             var valueEntity = await _valueRepository.GetByIdAsync(valueId);
 
-            return _mapper.Map<Entities.Value, ResponseValueDto>(valueEntity); ;
+            return _mapper.Map<Entities.Value, ResponseValueDto>(valueEntity);
+            ;
         }
 
         /// <inheritdoc />
