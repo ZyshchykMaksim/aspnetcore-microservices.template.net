@@ -1,0 +1,24 @@
+{
+  "name": {
+    "text": "ASP.NET Core Web API (Microservice)"
+  },
+  "description": {
+    "text": "A basic ASP.NET Web API with additional functions."
+  },
+  "icon": "icon.png",
+  "order": 300,
+  "supportsDocker": true,
+  "isApi": true,
+  "ports": [
+    {
+      "name": "HttpPort",
+      "useHttps": false
+    },
+    {
+      "name": "HttpsPort",
+      "useHttps": true
+    }
+  ],
+  "minFullFrameworkVersion": "net6.0",
+  "disableHttpsSymbol": "NoHttps"
+}
