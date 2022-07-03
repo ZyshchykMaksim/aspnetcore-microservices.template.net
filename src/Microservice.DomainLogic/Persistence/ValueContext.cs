@@ -13,6 +13,6 @@ namespace Microservice.DomainLogic.Persistence
         {
         }
 
-        public DbSet<Entities.Value> Values { get; set; }
+        public DbSet<Domain.Value> Values { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace Microservice.Web.Api.V1.M0.Mappings
         /// </summary>
         public ValueProfile()
         {
-            CreateMap<ResponseValueDto, Entities.Value>().ReverseMap();
-            CreateMap<RequestCreateValueDto, Entities.Value>().ReverseMap();
-            CreateMap<RequestUpdateValueDto, Entities.Value>().ReverseMap();
+            CreateMap<ResponseValueDto, Domain.Value>().ReverseMap();
+            CreateMap<RequestCreateValueDto, Domain.Value>().ReverseMap();
+            CreateMap<RequestUpdateValueDto, Domain.Value>().ReverseMap();
             CreateMap<RequestSearchTermValueDto, SearchTermValue>().ReverseMap();
         }
     }
