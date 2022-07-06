@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Microservice.DomainLogic.Models;
-using Microservice.Web.Api.V1.M0.Models;
 
 namespace Microservice.Web.Api.V1.M0.Mappings
 {
@@ -12,10 +10,10 @@ namespace Microservice.Web.Api.V1.M0.Mappings
         /// </summary>
         public ValueProfile()
         {
-            CreateMap<ResponseValueDto, Domain.Value>().ReverseMap();
-            CreateMap<RequestCreateValueDto, Domain.Value>().ReverseMap();
-            CreateMap<RequestUpdateValueDto, Domain.Value>().ReverseMap();
-            CreateMap<RequestSearchTermValueDto, SearchTermValue>().ReverseMap();
+            CreateMap<V1.M0.Models.RequestCreateValueDto, Domain.Value>();
+            CreateMap<V1.M0.Models.RequestUpdateValueDto, Domain.Value>();
+            CreateMap<V1.M0.Models.ResponseValueDto, Domain.Value>();
+            CreateMap<V1.M0.Models.RequestSearchTermValueDto, DomainLogic.V1.M0.Models.SearchTermValue>().ReverseMap();
         }
     }
 }

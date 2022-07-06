@@ -24,7 +24,8 @@ namespace Microservice.Web.Api
             services.AddHttpContextAccessor();
             services.AddAutoMapper(typeof(Startup));
             services.AddDataAccess(Configuration);
-            services.AddDomainLogicServices(Configuration);
+            services.AddDomainLogic(Configuration);
+            services.AddApplication(Configuration);
             services.AddCaching(Configuration);
             services.AddApiVersioning(Configuration);
             services.AddHealthCheck(Configuration);

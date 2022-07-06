@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Microservice.DataAccess.DB.MSSQL;
 using Microservice.DataAccess.DB.MSSQL.Pagination;
-using Microservice.DomainLogic.Models;
+using Microservice.DomainLogic.V1.M0.Models;
 
-namespace Microservice.DomainLogic.Repositories
+namespace Microservice.DomainLogic.V1.M0.Repositories
 {
     public interface IValueRepository : IRepository<Domain.Value>
     {

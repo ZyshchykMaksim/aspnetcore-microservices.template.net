@@ -1,7 +1,7 @@
 ﻿using Microservice.DataAccess.DB.MSSQL;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.DomainLogic.Persistence
+namespace Microservice.DomainLogic.Database
 {
     public class ValueContext : DbContextBase
     {

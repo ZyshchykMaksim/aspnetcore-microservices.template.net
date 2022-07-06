@@ -7,12 +7,12 @@ using Microservice.Common.Extensions;
 using Microservice.DataAccess.DB.MSSQL;
 using Microservice.DataAccess.DB.MSSQL.Extensions;
 using Microservice.DataAccess.DB.MSSQL.Pagination;
-using Microservice.DomainLogic.Enums;
-using Microservice.DomainLogic.Models;
-using Microservice.DomainLogic.Persistence;
+using Microservice.DomainLogic.Database;
+using Microservice.DomainLogic.V1.M0.Enums;
+using Microservice.DomainLogic.V1.M0.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.DomainLogic.Repositories.Implementations
+namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
 {
     public class ValueRepository : RepositoryBase<Domain.Value>, IValueRepository
     {

@@ -30,4 +30,11 @@
     <ProjectReference Include="..\Microservice.Domain\Microservice.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Database\Conventions" />
+    <Folder Include="Database\EntityTypeConfigurations" />
+    <Folder Include="Database\Migrations" />
+    <Folder Include="V1\M0" />
+  </ItemGroup>
+
 </Project>

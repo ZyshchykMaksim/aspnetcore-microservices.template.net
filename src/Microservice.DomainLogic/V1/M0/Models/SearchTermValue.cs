@@ -1,8 +1,8 @@
 ﻿using System;
-using Microservice.DomainLogic.Enums;
-using Microservice.DomainLogic.Models.Search;
+using Microservice.DomainLogic.V1.M0.Enums;
+using Microservice.DomainLogic.V1.M0.Models.Search;
 
-namespace Microservice.DomainLogic.Models
+namespace Microservice.DomainLogic.V1.M0.Models
 {
     public class SearchTermValue : OrderedQuerySearchBase<ValueOrderBy>
     {

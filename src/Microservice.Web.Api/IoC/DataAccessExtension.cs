@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using System.Reflection;
 using Microservice.DataAccess.DB.MSSQL;
-using Microservice.DomainLogic.Persistence;
-using Microservice.DomainLogic.Repositories;
-using Microservice.DomainLogic.Repositories.Implementations;
+using Microservice.DomainLogic.Database;
+using Microservice.DomainLogic.V1.M0.Repositories;
+using Microservice.DomainLogic.V1.M0.Repositories.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,8 +28,7 @@ namespace Microservice.Web.Api.IoC
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
-            services.AddScoped<IValueRepository, ValueRepository>();
-             
+
             return services;
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace Microservice.DomainLogic.Models.Search
+﻿namespace Microservice.DomainLogic.V1.M0.Models.Search
 {
     /// <summary>
     /// The base class to search terms.

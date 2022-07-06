@@ -5,8 +5,8 @@ using Dawn;
 using EasyCaching.Core;
 using EasyCaching.Core.DistributedLock;
 using Microservice.DataAccess.DB.MSSQL.Pagination;
-using Microservice.DomainLogic.Models;
-using Microservice.DomainLogic.Repositories;
+using Microservice.DomainLogic.V1.M0.Models;
+using Microservice.DomainLogic.V1.M0.Repositories;
 using Microservice.Web.Api.V1.M0.Models;
 
 namespace Microservice.Web.Api.V1.M0.Services.Implementations

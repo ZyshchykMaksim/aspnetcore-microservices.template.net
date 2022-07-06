@@ -1,4 +1,4 @@
-﻿namespace Microservice.DomainLogic.Enums
+﻿namespace Microservice.DomainLogic.V1.M0.Enums
 {
     /// <summary>
     /// The type of value to order the search result.
