@@ -1,4 +1,5 @@
 ﻿using Microservice.DataAccess.DB.MSSQL;
+using Microservice.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.DomainLogic.Database
@@ -13,6 +14,6 @@ namespace Microservice.DomainLogic.Database
         {
         }
 
-        public DbSet<Domain.Value> Values { get; set; }
+        public DbSet<Value> Values { get; set; }
     }
 }

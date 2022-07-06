@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microservice.DataAccess.DB.MSSQL.Entities;
 
-namespace Microservice.Domain
+namespace Microservice.Domain.Entities
 {
     /// <summary>
     /// The class for value.

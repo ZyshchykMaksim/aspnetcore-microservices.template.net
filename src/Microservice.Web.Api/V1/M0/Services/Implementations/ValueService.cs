@@ -5,6 +5,7 @@ using Dawn;
 using EasyCaching.Core;
 using EasyCaching.Core.DistributedLock;
 using Microservice.DataAccess.DB.MSSQL.Pagination;
+using Microservice.Domain.Entities;
 using Microservice.DomainLogic.V1.M0.Models;
 using Microservice.DomainLogic.V1.M0.Repositories;
 using Microservice.Web.Api.V1.M0.Models;
@@ -60,7 +61,7 @@ namespace Microservice.Web.Api.V1.M0.Services.Implementations
             var searchValueMapp = _mapper.Map<RequestSearchTermValueDto, SearchTermValue>(searchValueDto);
 
             var valuesEntity = await _valueRepository.GetAsync(searchValueMapp);
-            var valuesMapp = _mapper.Map<PagedResult<Domain.Value>, PagedResultDto<ResponseValueDto>>(valuesEntity);
+            var valuesMapp = _mapper.Map<PagedResult<Value>, PagedResultDto<ResponseValueDto>>(valuesEntity);
 
             return valuesMapp;
         }
@@ -75,7 +76,7 @@ namespace Microservice.Web.Api.V1.M0.Services.Implementations
 
             var valueEntity = await _valueRepository.GetByIdAsync(valueId);
 
-            return _mapper.Map<Domain.Value, ResponseValueDto>(valueEntity);
+            return _mapper.Map<Value, ResponseValueDto>(valueEntity);
             ;
         }
 
@@ -84,10 +85,10 @@ namespace Microservice.Web.Api.V1.M0.Services.Implementations
         {
             Guard.Argument(() => createValue).NotNull();
 
-            var valueEntityMapp = _mapper.Map<RequestCreateValueDto, Domain.Value>(createValue);
+            var valueEntityMapp = _mapper.Map<RequestCreateValueDto, Value>(createValue);
             var valueEntity = await _valueRepository.AddAsync(valueEntityMapp);
 
-            return _mapper.Map<Domain.Value, ResponseValueDto>(valueEntity);
+            return _mapper.Map<Value, ResponseValueDto>(valueEntity);
         }
 
         /// <inheritdoc />
@@ -107,10 +108,10 @@ namespace Microservice.Web.Api.V1.M0.Services.Implementations
                 return null;
             }
 
-            _mapper.Map<RequestUpdateValueDto, Domain.Value>(updateValueDto, existingValue);
+            _mapper.Map<RequestUpdateValueDto, Value>(updateValueDto, existingValue);
             await _valueRepository.UpdateAsync(existingValue, false, updateValueDto.RowVersion);
 
-            return _mapper.Map<Domain.Value, ResponseValueDto>(existingValue);
+            return _mapper.Map<Value, ResponseValueDto>(existingValue);
         }
 
         /// <inheritdoc />

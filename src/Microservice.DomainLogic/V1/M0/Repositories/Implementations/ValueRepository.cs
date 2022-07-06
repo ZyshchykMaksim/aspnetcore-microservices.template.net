@@ -7,6 +7,7 @@ using Microservice.Common.Extensions;
 using Microservice.DataAccess.DB.MSSQL;
 using Microservice.DataAccess.DB.MSSQL.Extensions;
 using Microservice.DataAccess.DB.MSSQL.Pagination;
+using Microservice.Domain.Entities;
 using Microservice.DomainLogic.Database;
 using Microservice.DomainLogic.V1.M0.Enums;
 using Microservice.DomainLogic.V1.M0.Models;
@@ -14,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
 {
-    public class ValueRepository : RepositoryBase<Domain.Value>, IValueRepository
+    public class ValueRepository : RepositoryBase<Value>, IValueRepository
     {
         private readonly ValueContext _dbContext;
 
@@ -29,7 +30,7 @@ namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
         #region Implementation of IValueRepository
 
         /// <inheritdoc cref="IValueRepository"/>
-        public async Task<Domain.Value> GetByIdAsync(Guid valueId)
+        public async Task<Value> GetByIdAsync(Guid valueId)
         {
             if (valueId == Guid.Empty)
             {
@@ -40,7 +41,7 @@ namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
         }
 
         /// <inheritdoc cref="IValueRepository"/>
-        public async Task<Domain.Value> GetByNameAsync(string strName)
+        public async Task<Value> GetByNameAsync(string strName)
         {
             if (string.IsNullOrWhiteSpace(strName))
             {
@@ -51,10 +52,10 @@ namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
         }
 
         /// <inheritdoc cref="IValueRepository"/>
-        public async Task<PagedResult<Domain.Value>> GetAsync(SearchTermValue searchTermValue)
+        public async Task<PagedResult<Value>> GetAsync(SearchTermValue searchTermValue)
         {
-            Expression<Func<Domain.Value, bool>> searchExpression = BuildSearchValuesExpression(searchTermValue);
-            Expression<Func<Domain.Value, dynamic>> orderExpression = BuildValuesOrderExpression(searchTermValue?.OrderBy);
+            Expression<Func<Value, bool>> searchExpression = BuildSearchValuesExpression(searchTermValue);
+            Expression<Func<Value, dynamic>> orderExpression = BuildValuesOrderExpression(searchTermValue?.OrderBy);
 
             var values = await _dbContext.Values
                 .Where(searchExpression)
@@ -68,9 +69,9 @@ namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
 
         #region Private methods
 
-        private Expression<Func<Domain.Value, bool>> BuildSearchValuesExpression(SearchTermValue searchTermValue)
+        private Expression<Func<Value, bool>> BuildSearchValuesExpression(SearchTermValue searchTermValue)
         {
-            Expression<Func<Domain.Value, bool>> expression = e => !e.DeletedUtc.HasValue;
+            Expression<Func<Value, bool>> expression = e => !e.DeletedUtc.HasValue;
 
             if (searchTermValue != null)
             {
@@ -98,9 +99,9 @@ namespace Microservice.DomainLogic.V1.M0.Repositories.Implementations
             return expression;
         }
 
-        private Expression<Func<Domain.Value, object>> BuildValuesOrderExpression(ValueOrderBy? orderBy)
+        private Expression<Func<Value, object>> BuildValuesOrderExpression(ValueOrderBy? orderBy)
         {
-            Expression<Func<Domain.Value, dynamic>> orderExpression = e => e.CreatedUtc;
+            Expression<Func<Value, dynamic>> orderExpression = e => e.CreatedUtc;
 
             if (orderBy.HasValue)
             {
